@@ -1,0 +1,37 @@
+#!/usr/bin/make -f
+
+clean:
+	dh_testdir
+	dh_testroot
+	dh_clean *.pyc
+
+build:
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_install r2e usr/bin
+	dh_install html2text.py rss2email.py usr/share/rss2email
+	chmod 644 debian/rss2email/usr/share/rss2email/*
+	perl -i -pe 's/\r//' debian/rss2email/usr/share/rss2email/*
+
+binary-indep: build install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs
+	dh_installdocs
+	dh_installexamples config.py
+	dh_installman r2e.1
+	dh_compress
+	dh_fixperms
+	dh_pysupport
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary-arch: build install
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install

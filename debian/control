@@ -1,0 +1,18 @@
+Source: rss2email
+Section: mail
+Priority: optional
+Maintainer: David Watson <dwatson@debian.org>
+Build-Depends: debhelper (>= 7.2.8)
+Build-Depends-Indep: python, python-dev, python-support (>= 0.4)
+Standards-Version: 3.8.1
+Vcs-Git: git://planetwatson.co.uk/rss2email
+Vcs-Browser: http://git.planetwatson.co.uk/?p=rss2email.git
+Homepage: http://rss2email.infogami.com/
+
+Package: rss2email
+Architecture: all
+Depends: ${python:Depends}, ${misc:Depends}, python-feedparser
+Description: receive RSS feeds by email
+ rss2email is a simple program which you can run in your crontab.
+ It watches RSS (or Atom) feeds and sends you a nicely formatted
+ email message for each new item.

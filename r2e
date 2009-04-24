@@ -1,2 +1,16 @@
 #!/bin/sh
-python rss2email.py feeds.dat $*
+set -e
+dir=~/.rss2email
+if [ "$1" = "-d" ]; then
+	if [ -z "$2" ]; then
+		echo "r2e: -d missing directory" >&2
+		exit 1
+	fi
+	dir="$2"
+	shift 2
+fi
+if [ ! -d "$dir" ]; then
+	mkdir -p "$dir"
+fi
+cd "$dir"
+exec python /usr/share/rss2email/rss2email.py feeds.dat $*

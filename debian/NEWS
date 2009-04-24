@@ -1,0 +1,7 @@
+rss2email (2.30-1) unstable; urgency=low
+
+  WARNING: This update will cause a lot of resends the first time you run it.
+  To protect against this, run the old version, upgrade, and immediately run
+  it with the --no-send option.
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 11 Feb 2004 18:26:10 -0500

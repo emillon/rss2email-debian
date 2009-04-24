@@ -1,0 +1,9 @@
+This package was put together by Joey Hess <joeyh@debian.org>, using sources
+from the following location:
+
+	http://rss2email.infogami.com/
+
+rss2email, r2e, and the html2text module are Copyright (C) 2004-2007 Aaron
+Swartz, and licensed under the terms of version 2 of the GPL. The GNU
+GPL may be found on Debian systems in the file 
+/usr/share/common-licenses/GPL-2.

@@ -1,0 +1,435 @@
+rss2email (1:2.65-1) unstable; urgency=low
+
+  * New upstream release. Closes: #525489.
+    * Tested broken previously broken feeds.
+      Closes: #520910, #458964, #497142.
+  * Bump Standards Version, no changes needed.
+  * Update debhelper version.
+
+ -- David Watson <dwatson@debian.org>  Fri, 24 Apr 2009 23:51:42 +0100
+
+rss2email (1:2.62-3) unstable; urgency=low
+
+  * Change of maintainer.
+
+ -- David Watson <dwatson@debian.org>  Wed, 28 May 2008 22:41:53 +0100
+
+rss2email (1:2.62-2) unstable; urgency=low
+
+  * Fix man page section. Closes: #469831
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 07 Mar 2008 11:33:34 -0500
+
+rss2email (1:2.62-1) unstable; urgency=low
+
+  * New upstream bugfix release.
+    * Simplified SunOS fix
+    * Local feeds (/home/user/file.xml) should work
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 14 Jan 2008 16:44:44 -0500
+
+rss2email (1:2.61-1) unstable; urgency=low
+
+  * New upstream release.
+    - Now really compatible with SunOS
+    - Don't wrap long subject headers
+    - New parameter CHARSET_LIST to override or supplement the order in
+      which charsets are tried against an entry
+    - Don't use blank content to generate id
+    - Using GMail as mail server should work
+  * html2text also updated, to version 2.29
+  * Added Homepage field.
+  * Moved to git.
+  * Remove upstream's dos CR's at install time.
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 07 Dec 2007 20:44:06 -0500
+
+rss2email (1:2.60-6) unstable; urgency=low
+
+  * Patch from Martin Krafft to fix a case where the smtpserver variable could
+    be defined before being used. Closes: #439930
+  * Patch from Rainer Koenig to stop line wrapping in very long subject lines.
+    Closes: #383594
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 28 Aug 2007 13:42:30 -0400
+
+rss2email (1:2.60-5) unstable; urgency=low
+
+  * Don't allow config.py elsewhere in the search path to be loaded instead
+    of the user's config.py. Thanks, Thomas Fogwill. Closes: #428812
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 14 Jun 2007 11:45:58 -0400
+
+rss2email (1:2.60-4) unstable; urgency=low
+
+  * Add a -d option to r2e that can be used to make it use a different
+    directory for its config.dat and feeds. Closes: #425953
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 25 May 2007 13:44:04 -0400
+
+rss2email (1:2.60-3) unstable; urgency=low
+
+  * Check exit status of sendmail, and die if it fails. Closes: #402725 
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 13 Dec 2006 14:34:42 -0500
+
+rss2email (1:2.60-2) unstable; urgency=low
+
+  * ACK aba's NMU.
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 13 Dec 2006 14:09:08 -0500
+
+rss2email (1:2.60-1.1) unstable; urgency=high
+
+  * Non-maintainer upload.
+  * Use fcntl even on non-Sunos-Unix, i.e. Debian. Closes: #401077
+
+ -- Andreas Barth <aba@not.so.argh.org>  Sat,  9 Dec 2006 21:41:02 +0000
+
+rss2email (1:2.60-1) unstable; urgency=low
+
+  * New upstream release, including the change in -3 below and a few other
+    small changes.
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 25 Aug 2006 23:19:20 -0400
+
+rss2email (1:2.59-3) unstable; urgency=low
+
+  * Patch from Tatsuya Kinoshita to make it not add quotes around
+    a sender name, since if the name gets mime-encoded, the quotes will result
+    in an invalid encoding.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 24 Aug 2006 17:05:01 -0400
+
+rss2email (1:2.59-2) unstable; urgency=low
+
+  * Use python-support for python transition. Closes: #380937
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 10 Aug 2006 18:26:01 -0400
+
+rss2email (1:2.59-1) unstable; urgency=low
+
+  * New upstream release:
+    - Support for listing urls for podcast enclosures
+    - Timeout for nonresponsive feeds (Closes: #362649)
+    - Configurable CSS styling for HTML mail
+    - Improved empty feed checking
+    - Improved invalid feed messages
+  • - Total rewrite of email code that should fix encoding problems
+      (Closes: #361902)
+  • - Added configurable timeout for nonresponsive feeds
+  • - Fixed incorrectly using text summary_detail instead of html
+      content
+    - Fixed bug with deleting feed 0 if no default email was set
+    - Print name of feed that is being deleted
+  * New web site.
+  * Document new FEED_TIMEOUT, USE_CSS_STYLING, STYLE_SHEET, and PROXY config
+    variables in config.py.
+  * Add missing build target to rules file.
+  * Current standards version.
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 19 Jun 2006 16:39:28 -0400
+
+rss2email (1:2.57-1) unstable; urgency=low
+
+  * New upstream release, now including all the patches I've collected for
+    this package.
+    "fixes a slew of reliability and other bugs"
+
+ -- Joey Hess <joeyh@debian.org>  Fri,  7 Apr 2006 18:26:47 -0400
+
+rss2email (1:2.56-1) unstable; urgency=low
+
+  * New upstream release
+    "SMTP AUTH, Windows support, HTML in titles. First version by Lindsey
+    Smith."
+
+ -- Joey Hess <joeyh@debian.org>  Tue,  4 Apr 2006 19:57:55 -0400
+
+rss2email (1:2.55.dfsg1-2) unstable; urgency=low
+
+  * Update html2text to version 2.24.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 16 Mar 2006 12:52:19 -0500
+
+rss2email (1:2.55.dfsg1-1) unstable; urgency=low
+
+  * Remove feedparser.py from this package and depend on the new
+    python-feedparser package. Closes: #345352
+  * Repacked the upstream tarball since the feedparser included in it turns
+    out to be invalidly licensed.
+  * Version number munge so new repacked tarball will be accepted.
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 30 Dec 2005 14:16:02 -0500
+
+rss2email (1:2.55-6) unstable; urgency=low
+
+  * Current policy.
+  * Fix perms of python libs
+
+ -- Joey Hess <joeyh@debian.org>  Sun, 18 Dec 2005 17:12:03 -0500
+
+rss2email (1:2.55-5) unstable; urgency=low
+
+  * Document num parameter to run subcommand. Closes: #340425 
+
+ -- Joey Hess <joeyh@debian.org>  Sun, 27 Nov 2005 15:58:27 -0500
+
+rss2email (1:2.55-4) unstable; urgency=low
+
+  * Remove the detailed and outdated description of the config file from
+    the man page. Closes: #328231
+
+ -- Joey Hess <joeyh@debian.org>  Tue,  8 Nov 2005 15:26:25 -0500
+
+rss2email (1:2.55-3) unstable; urgency=low
+
+  * Man page patch from Florian Ernst. Closes: #334043 
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 15 Oct 2005 13:59:17 -0400
+
+rss2email (1:2.55-2) unstable; urgency=low
+
+  * Patch from Stephane Bortzmeyer to add support for the official namespace
+    of Atom 1.0. Closes: #333490
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 12 Oct 2005 19:56:29 -0400
+
+rss2email (1:2.55-1) unstable; urgency=low
+
+  * New upstream release of rss2email ("datetime parsing bug").
+  * Also updates html2text to version 2.23 and feedparser to pre-3.4-.
+
+ -- Joey Hess <joeyh@debian.org>  Wed,  3 Aug 2005 14:06:19 -0400
+
+rss2email (1:2.54-7) unstable; urgency=low
+
+  * Patch from Tatsuya Kinoshita to workaround mimify behavior that adds a
+    newline to subject line if it contains very long words. Closes: #320185
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 27 Jul 2005 22:55:15 -0400
+
+rss2email (1:2.54-6) unstable; urgency=low
+
+  * Patch from tbm to fix crash in list if there is a feed with no address,
+    and no default address is set. Closes: #310485
+  * Patch from tbm to fix crash when web serveracepts connection but
+    thenimmediatly closes it. Closes: #312067
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 18 Jun 2005 23:07:50 -0400
+
+rss2email (1:2.54-5) unstable; urgency=low
+
+  * Patch from tbm to fix unexpected code byte problem in utf8 codec
+    by passing "replace" to utf_8_decode. Closes: #313097
+  * Patch from tbm to avoid backtraces when too few or wrong arguments
+    are given, and instead display useful error messages. Closes: #313099
+  * Patch from tbm to make delete more reliable, so it no longer allows you
+    to: remove the default email address ('feed' 0) and thereby hose your
+    feed file, 'remove' entries that don't exist without warning; and so
+    it only says IDs have changed when they really have. Closes: #313101
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 17 Jun 2005 14:11:46 -0400
+
+rss2email (1:2.54-4) unstable; urgency=low
+
+  * Patch from tbm to support --help without an E: message. Closes: #310482
+  * Patch from tbm to avoid backtrace when adding a feed if no default
+    email address is defined. Closes: #310487
+  * Patch from tbm to ignore </ul> or </ol> if no list is open, rather
+    than crashing on such a buggy feed. Closes: #303298
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 24 May 2005 13:10:03 -0400
+
+rss2email (1:2.54-3) unstable; urgency=low
+
+  * Add approximatly useless README.Debian. What's another inode?
+    Closes: #305534
+  * Patch from tbm to fail with a useful error message if the feeds file does
+    not exist. Closes: #309867
+  * Arch indep build depends fiddling.
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 20 May 2005 19:37:15 -0400
+
+rss2email (1:2.54-2) unstable; urgency=low
+
+  * Patched html2text to kill newline in alt tags. Closes: #299027
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 12 Mar 2005 00:34:46 -0500
+
+rss2email (1:2.54-1) unstable; urgency=low
+
+  * New upstream release: 
+    "HTML descriptions, text wrapping, Python 2.1, and more!"
+    - Adds back word wrapping support. Closes: #265514
+    - Incorporates liw's patch and several others.
+  * Update config.py.
+  * Update feed parser home page.
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 27 Aug 2004 16:42:25 -0400
+
+rss2email (1:2.51-6) unstable; urgency=low
+
+  * Patch from Lars Wirzenius to properly encode the From and Subject in
+    7-bit ascii. Closes: #265350
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 12 Aug 2004 21:47:44 -0300
+
+rss2email (1:2.51-5) unstable; urgency=low
+
+  * sendmail comment typo fix. Closes: #259691
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 19 Jul 2004 16:34:21 -0400
+
+rss2email (1:2.51-4) unstable; urgency=low
+
+  * Upgrade to feedparser 3.3. Closes: #259621
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 19 Jul 2004 15:10:22 -0400
+
+rss2email (1:2.51-3) unstable; urgency=low
+
+  * Fix a typo that broke adding feeds with email addresses. Closes: #259360
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 14 Jul 2004 10:59:32 -0400
+
+rss2email (1:2.51-2) unstable; urgency=low
+
+  * Updated to feedparser version "3.2-", fixes a crash wih feeds in some
+    character encodings.
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 30 Jun 2004 18:38:34 -0400
+
+rss2email (1:2.51-1) unstable; urgency=low
+
+  * New upstream release: "Fixes a crash in older versions of Python on slow
+    feeds"
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 28 Jun 2004 21:21:04 -0400
+
+rss2email (1:2.5-1) unstable; urgency=low
+
+  * New upstream release.
+    - Fix various crashes. Closes: #235135, #242440, #241642
+    - The default from address uses the .invalid tld now. Closes: #253284
+    - Uses author email addresses from RSS/Atom files. Closes: #234630
+      (patch from LIW)
+    - Expand ndash entity. Closes: #237693
+    - Added http basicauth support. Closes: #249648 (just include user and
+      password in URL)
+    - Fix problem with empty descriptions. Closes: #249385
+    - No more debian diff for rss2email.py, html2text.py.
+  * Use an epoch to fix the version number.
+  * Updated urls in copyright file.
+  * Update config.py, including html2text options UNICODE_SNOB and
+    LINKS_EACH_PARAGRAPH.
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 28 Jun 2004 13:54:08 -0400
+
+rss2email (2.30-4) unstable; urgency=low
+
+  * Minor manpage fix.
+  * Document all the config.py options in the manpage. Closes: #247144
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 26 Apr 2004 23:23:16 -0400
+
+rss2email (2.30-3) unstable; urgency=low
+
+  * Man page improvements from liw. Closes: #234634
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 25 Feb 2004 13:13:10 -0500
+
+rss2email (2.30-2) unstable; urgency=low
+
+  * Make rss2email.py display usage help for r2e. Closes: #233554
+  * Remove mention of old channels.txt from man page. Closes: #233555
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 18 Feb 2004 18:03:54 -0500
+
+rss2email (2.30-1) unstable; urgency=low
+
+  * New upstream release: "Far more robust (saves on crash, catches more
+    errors, atomic saves). Fix for Unicode crash. Use guid instead of link
+    for seen frame."
+    Closes: #232257
+  * Add NEWS.Debian for the upgrade warning.
+  * Version number munge; this is 2.3 upstream.
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 11 Feb 2004 18:26:10 -0500
+
+rss2email (2.28-1) unstable; urgency=low
+
+  * New upstream releases:
+    2.27 "DATE_HEADER option (makes emails look as if they were sent when the
+          item was posted), better error reporting, `r2e list` doesn't lock,
+          fix for no-download crash. Tx Alan D."
+    2.28 "--no-send option for run, fixed FORCE_FROM. Tx Alan D."
+  * Update manpage and config.py.
+
+ -- Joey Hess <joeyh@debian.org>  Mon,  2 Feb 2004 16:13:44 -0500
+
+rss2email (2.26-1) unstable; urgency=low
+
+  * New upstream releases:
+    2.24 "Possible fix for process leak. Tx Alan Danziger."
+    2.25 "Quote email address names. Tx Alan Danziger, qmail."
+    2.26 "Fix for typo, email replacement. Added VERBOSE, FORCE_FROM
+          options and redirect support. Tx Alan D., Pete Prodoehi, Matej."
+  * Add VERBOSE and FORCE_FROM to config.py.
+  * Re-disabled the xml validation stuff in rssparser, lost when I renamed it.
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 30 Jan 2004 18:57:21 -0500
+
+rss2email (2.23-1) unstable; urgency=low
+
+  * New upstream release. ("Fix for empty link tags.")
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 30 Jan 2004 13:49:08 -0500
+
+rss2email (2.22-2) unstable; urgency=low
+
+  * Fix accidental dep on python2.2.
+  * Modify feedparser to work with python 2.1 as well as 2.2 and 2.3,
+    patch from Aaron.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 29 Jan 2004 17:08:48 -0500
+
+rss2email (2.22-1) unstable; urgency=low
+
+  * New upstream release. ("Added QP support, fix for empty GUIDs, and 
+    fix for major default email bugs.")
+  * Update config.py.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 29 Jan 2004 14:08:35 -0500
+
+rss2email (2.2-1) unstable; urgency=low
+
+  * New upstream release. ("Added default email support, backwards-compatible.
+    Tx Matej Cepl.")
+  * Fix typo in docstring.
+  * Update man page.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 29 Jan 2004 13:32:05 -0500
+
+rss2email (2.1-1) unstable; urgency=low
+
+  * New upstream release, incorporating all my patches to rss2email.py.
+  * Last release forgot to close the WNPP bug, so this Closes: #229286
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 28 Jan 2004 22:59:39 -0500
+
+rss2email (2.0-1) unstable; urgency=low
+
+  * Gathered the package from various sources, as explained in the copyright
+    file, and thus built the .orig.tar.gz.
+  * Commented out the xml.sax validation stuff in the feedparser, after
+    discovering that python's xml parser is buggy, and crashes on some rss
+    feeds.
+  * Wrote a man page.
+  * Add a User-Agent header to the mails.
+  * Read config.py if available.
+  * Modified r2e to cd to ~/.rss2email (making the directory first if
+    necessary) before running rss2email, so the data file and config.py can
+    be in their own subdirectory.
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 23 Jan 2004 20:48:59 -0500
