@@ -2,9 +2,10 @@ rss2email (1:2.69) unstable; urgency=low
 
   * Non-maintainer upload.
   * New upstream release. Closes: #518410, #447144.
-  * Remove Vcs information (dead links) 
+  * Remove Vcs information (dead links).
+  * Update Homepage.
 
- -- Etienne Millon <etienne.millon@gmail.com>  Thu, 02 Dec 2010 11:30:03 +0100
+ -- Etienne Millon <etienne.millon@gmail.com>  Thu, 02 Dec 2010 11:30:58 +0100
 
 rss2email (1:2.65-1) unstable; urgency=low
 

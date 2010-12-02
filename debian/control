@@ -5,7 +5,7 @@ Maintainer: David Watson <dwatson@debian.org>
 Build-Depends: debhelper (>= 7.2.8)
 Build-Depends-Indep: python, python-dev, python-support (>= 0.4)
 Standards-Version: 3.8.1
-Homepage: http://rss2email.infogami.com/
+Homepage: http://www.allthingsrss.com/rss2email/
 
 Package: rss2email
 Architecture: all
