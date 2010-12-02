@@ -2,7 +2,7 @@
 .SH NAME
 r2e \- receive RSS feeds by email
 .SH SYNOPSIS
-.B r2e [-d dir] action [options]
+.B r2e [\-d dir] action [options]
 .SH DESCRIPTION
 .BR r2e
 is a simple program which you can run in your crontab.
@@ -11,7 +11,7 @@ for each new item.
 .P
 The program is configured by ~/.rss2email/config.py by default. To use
 a different config file in a different directory, you can specify the
--d option before any actions.
+\-d option before any actions.
 .P
 For a quick start with r2e, try these steps:
 .P
@@ -35,11 +35,11 @@ Subscribe to a feed. The first option is the URL of the feed.
 The optional second option is the email address to send new items to.
 Repeat for each feed you want to subscribe to.
 .TP
-.B run [--no-send] [num]
+.B run [\-\-no\-send] [num]
 Scan the feeds and send emails for new items. This can be run in a cron
 job.
 .P
-The --no-send option stops r2e from sending any email. This can be
+The \-\-no\-send option stops r2e from sending any email. This can be
 useful the first time you run it, as otherwise it would send every
 available story.
 .P
