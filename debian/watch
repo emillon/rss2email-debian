@@ -1,1 +1,2 @@
-#Upstream does not release a tarball.
+version=3
+http://www.allthingsrss.com/rss2email/rss2email-(.+).tar.gz
