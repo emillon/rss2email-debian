@@ -6,8 +6,9 @@ rss2email (1:2.69-0.1) unstable; urgency=low
   * Update Homepage.
   * Add debian/source/format. 
   * Bump Standards-Version to 3.9.1 (no changes needed).
+  * Add working debian/watch file.
 
- -- Etienne Millon <etienne.millon@gmail.com>  Thu, 02 Dec 2010 11:58:50 +0100
+ -- Etienne Millon <etienne.millon@gmail.com>  Tue, 07 Dec 2010 12:57:25 +0100
 
 rss2email (1:2.65-1) unstable; urgency=low
 
