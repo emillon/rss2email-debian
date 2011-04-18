@@ -285,7 +285,6 @@ class _html2text(sgmllib.SGMLParser):
             if attrs.has_key('src'):
                 attrs['href'] = attrs['src']
                 alt = attrs.get('alt', '')
-                alt = re.sub('\n', ' ', alt)
                 i = self.previousIndex(attrs)
                 if i is not None:
                     attrs = self.a[i]
