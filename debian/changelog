@@ -1,3 +1,10 @@
+rss2email (1:2.70-0.1) UNRELEASED; urgency=low
+
+  * Non-maintainer upload.
+  * New upstream release.
+
+ -- Etienne Millon <etienne.millon@gmail.com>  Mon, 18 Apr 2011 09:45:37 +0200
+
 rss2email (1:2.69-0.1) unstable; urgency=low
 
   * Non-maintainer upload.
