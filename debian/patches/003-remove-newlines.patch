@@ -1,0 +1,12 @@
+diff --git a/html2text.py b/html2text.py
+index 8562a7d..c2bae58 100755
+--- a/html2text.py
++++ b/html2text.py
+@@ -285,6 +285,7 @@ class _html2text(sgmllib.SGMLParser):
+             if attrs.has_key('src'):
+                 attrs['href'] = attrs['src']
+                 alt = attrs.get('alt', '')
++                alt = re.sub('\n', ' ', alt)
+                 i = self.previousIndex(attrs)
+                 if i is not None:
+                     attrs = self.a[i]
