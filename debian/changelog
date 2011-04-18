@@ -2,8 +2,9 @@ rss2email (1:2.70-0.1) UNRELEASED; urgency=low
 
   * Non-maintainer upload.
   * New upstream release.
+  * Switched to 3.0 (quilt) format.
 
- -- Etienne Millon <etienne.millon@gmail.com>  Mon, 18 Apr 2011 09:45:37 +0200
+ -- Etienne Millon <etienne.millon@gmail.com>  Mon, 18 Apr 2011 10:48:05 +0200
 
 rss2email (1:2.69-0.1) unstable; urgency=low
 
