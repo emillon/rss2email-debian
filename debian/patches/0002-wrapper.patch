@@ -1,3 +1,13 @@
+From: David Watson <dwatson@debian.org>
+Date: Mon, 18 Apr 2011 10:41:04 +0200
+Subject: wrapper
+
+---
+ r2e |   16 +++++++++++++++-
+ 1 files changed, 15 insertions(+), 1 deletions(-)
+
+diff --git a/r2e b/r2e
+index e582fae..ed735cf 100755
 --- a/r2e
 +++ b/r2e
 @@ -1,2 +1,16 @@
@@ -18,3 +28,4 @@
 +fi
 +cd "$dir"
 +exec python /usr/share/rss2email/rss2email.py feeds.dat $*
+-- 
