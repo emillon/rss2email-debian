@@ -21,11 +21,11 @@ binary-indep: build install
 	dh_testroot
 	dh_installchangelogs
 	dh_installdocs
-	dh_installexamples config.py
+	dh_installexamples config.py.example
 	dh_installman r2e.1
 	dh_compress
 	dh_fixperms
-	chmod 644 debian/rss2email/usr/share/doc/rss2email/examples/config.py
+	chmod 644 debian/rss2email/usr/share/doc/rss2email/examples/config.py.example
 	dh_pysupport
 	dh_installdeb
 	dh_gencontrol
