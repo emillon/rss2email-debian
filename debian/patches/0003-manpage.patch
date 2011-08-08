@@ -7,9 +7,6 @@ Subject: manpage
  1 files changed, 77 insertions(+), 0 deletions(-)
  create mode 100644 r2e.1
 
-diff --git a/r2e.1 b/r2e.1
-new file mode 100644
-index 0000000..70132a0
 --- /dev/null
 +++ b/r2e.1
 @@ -0,0 +1,77 @@
@@ -90,4 +87,3 @@ index 0000000..70132a0
 +If this file exists, it it read to configure the program.
 +.SH AUTHOR
 +Aaron Swartz <rss2email@aaronsw.com>
--- 
