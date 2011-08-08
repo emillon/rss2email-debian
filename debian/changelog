@@ -1,22 +1,15 @@
-rss2email (1:2.70-0.1) UNRELEASED; urgency=low
-
-  * Non-maintainer upload.
-  * New upstream release.
-  * Switched to 3.0 (quilt) format.
-
- -- Etienne Millon <etienne.millon@gmail.com>  Mon, 18 Apr 2011 10:48:05 +0200
-
-rss2email (1:2.69-0.1) unstable; urgency=low
+rss2email (1:2.71-1) UNRELEASED; urgency=low
 
   * Non-maintainer upload.
   * New upstream release. Closes: #518410, #447144.
+  * Switched to 3.0 (quilt) format.
   * Remove Vcs information (dead links).
   * Update Homepage.
   * Add debian/source/format. 
   * Bump Standards-Version to 3.9.1 (no changes needed).
   * Add working debian/watch file.
 
- -- Etienne Millon <etienne.millon@gmail.com>  Tue, 07 Dec 2010 12:57:25 +0100
+ -- Etienne Millon <etienne.millon@gmail.com>  Mon, 08 Aug 2011 18:57:57 +0200
 
 rss2email (1:2.65-1) unstable; urgency=low
 
