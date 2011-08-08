@@ -1,2 +1,3 @@
 version=3
-http://www.allthingsrss.com/rss2email/rss2email-(.+).tar.gz
+http://www.allthingsrss.com/rss2email/download \
+  http://www.allthingsrss.com/rss2email/rss2email-(.+).tar.gz
