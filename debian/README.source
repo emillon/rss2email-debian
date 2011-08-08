@@ -1,0 +1,2 @@
+Version 2.71 was repacked from the upstream tarball because its permissions were
+bogus (all bits reset). Besides fixing them, repacking is a no-op.

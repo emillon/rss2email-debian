@@ -35,4 +35,17 @@ binary-indep: build install
 binary-arch: build install
 
 binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install
+
+DEB_UPSTREAM_VERSION=$(shell dpkg-parsechangelog | sed -rne 's,^Version: ([0-9]+:)?([^-]+).*,\2,p')
+get-orig-source:
+	uscan --noconf --force-download --rename --download-current-version --destdir=.
+	tar xzf rss2email_$(DEB_UPSTREAM_VERSION).orig.tar.gz
+	rm rss2email_$(DEB_UPSTREAM_VERSION).orig.tar.gz
+	chmod -R +rwx rss2email-$(DEB_UPSTREAM_VERSION)
+	mv rss2email-$(DEB_UPSTREAM_VERSION) rss2email-$(DEB_UPSTREAM_VERSION).orig
+	GZIP=--best tar -cz --owner root --group root --mode a+rX \
+                        -f rss2email_$(DEB_UPSTREAM_VERSION).orig.tar.gz \
+                        rss2email-$(DEB_UPSTREAM_VERSION).orig
+	rm -r rss2email-$(DEB_UPSTREAM_VERSION).orig
+
+.PHONY: build clean binary-indep binary-arch binary install get-orig-source
