@@ -29,7 +29,7 @@ binary-indep: build install
 	dh_compress
 	dh_fixperms
 	chmod 644 debian/rss2email/usr/share/doc/rss2email/examples/config.py.example
-	dh_pysupport
+	dh_python2
 	dh_installdeb
 	dh_gencontrol
 	dh_md5sums

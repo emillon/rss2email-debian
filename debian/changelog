@@ -9,8 +9,9 @@ rss2email (1:2.71-0.1) UNRELEASED; urgency=low
   * Bump Standards-Version to 3.9.2 (no changes needed).
   * Add working debian/watch file.
   * Add build-{arch,indep} targets.
+  * Switch from python-support to dh_python2.
 
- -- Etienne Millon <etienne.millon@gmail.com>  Tue, 09 Aug 2011 14:03:38 +0200
+ -- Etienne Millon <etienne.millon@gmail.com>  Tue, 09 Aug 2011 14:15:44 +0200
 
 rss2email (1:2.65-1) unstable; urgency=low
 
