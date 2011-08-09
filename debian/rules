@@ -7,6 +7,9 @@ clean:
 
 build:
 
+build-arch: build
+build-indep: build
+
 install: build
 	dh_testdir
 	dh_testroot
@@ -48,4 +51,4 @@ get-orig-source:
                         rss2email-$(DEB_UPSTREAM_VERSION).orig
 	rm -r rss2email-$(DEB_UPSTREAM_VERSION).orig
 
-.PHONY: build clean binary-indep binary-arch binary install get-orig-source
+.PHONY: build clean binary-indep binary-arch build-indep build-arch binary install get-orig-source
