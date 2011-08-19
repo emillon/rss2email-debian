@@ -5,8 +5,7 @@
 
 override_dh_fixperms:
 	dh_fixperms
-	chmod 644 debian/rss2email/usr/share/rss2email/html2text.py \
-	          debian/rss2email/usr/share/rss2email/rss2email.py \
+	chmod 644 debian/rss2email/usr/share/rss2email/rss2email.py \
 	          debian/rss2email/usr/share/doc/rss2email/examples/config.py.example
 
 DEB_UPSTREAM_VERSION=$(shell dpkg-parsechangelog | sed -rne 's,^Version: ([0-9]+:)?([^-]+).*,\2,p')
