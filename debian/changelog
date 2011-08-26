@@ -1,11 +1,13 @@
 rss2email (1:2.71-0.1) UNRELEASED; urgency=low
 
   * Non-maintainer upload.
-  * New upstream release. Closes: #518410, #447144.
-    - OPML import/export is now possible. Closes: #248056.
+  * New upstream release.
+    - don't ship html2text, depend on it instead (Closes: #555447).
+    - Feed URL is included in a header (Closes: #447144, #518410).
+    - OPML import/export is now possible (Closes: #248056).
     - new patch setting __version__ to the correct number.
   * debian/copyright :
-    - rss2email can be used under the GPL v2 or v3 (Closes: #567584)/
+    - rss2email can be used under the GPL v2 or v3 (Closes: #567584).
     - add copyright information for feedparser.
   * Switched to 3.0 (quilt) format.
   * Remove Vcs information (dead links).
@@ -16,7 +18,7 @@ rss2email (1:2.71-0.1) UNRELEASED; urgency=low
   * Add build-{arch,indep} targets.
   * Switch from python-support to dh_python2.
 
- -- Etienne Millon <etienne.millon@gmail.com>  Fri, 26 Aug 2011 19:17:40 +0200
+ -- Etienne Millon <etienne.millon@gmail.com>  Fri, 26 Aug 2011 19:19:50 +0200
 
 rss2email (1:2.65-1) unstable; urgency=low
 
