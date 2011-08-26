@@ -6,9 +6,11 @@ Subject: remove-newlines
  html2text.py |    1 +
  1 files changed, 1 insertions(+), 0 deletions(-)
 
+diff --git a/html2text.py b/html2text.py
+index 0ed4cec..1cd5194 100755
 --- a/html2text.py
 +++ b/html2text.py
-@@ -305,6 +305,7 @@
+@@ -305,6 +305,7 @@ class _html2text(HTMLParser.HTMLParser):
              if has_key(attrs, 'src'):
                  attrs['href'] = attrs['src']
                  alt = attrs.get('alt', '')
@@ -16,3 +18,4 @@ Subject: remove-newlines
                  i = self.previousIndex(attrs)
                  if i is not None:
                      attrs = self.a[i]
+-- 
