@@ -1,3 +1,4 @@
 0001-remove-newlines.patch
 0002-wrapper.patch
 0003-Setup-the-correct-version-number-in-rss2email.py.patch
+0004-Add-a-bonus-header-per-feed.patch
