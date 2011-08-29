@@ -5,7 +5,7 @@ Subject: Add a 'bonus header' per feed
 This patch implements the possibility to add extra headers on a per-feed
 basis.
 
-It has been picked from #349061.
+It has been picked and slightly adapted from #349061.
 ---
  rss2email.py |   46 +++++++++++++++++++++++++++++++++-------------
  1 files changed, 33 insertions(+), 13 deletions(-)
