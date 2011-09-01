@@ -93,7 +93,7 @@ index 7696d99..3357491 100755
 +							add_extra_header(hdr)
 +
 +					if f.bonus_header is not None:
-+					add_extra_header(f.bonus_header)
++						add_extra_header(f.bonus_header)
  					
  					entrycontent = getContent(entry, HTMLOK=HTML_MAIL)
  					contenttype = 'plain'
