@@ -17,8 +17,8 @@ For a quick start with r2e, try these steps:
 .P
 .RS
 .nf
-.BI "r2e new " your@address " 
-.BI "r2e add " http://feed.url/somewhere.rss " [youremail] [bonus_header]"
+.BI "r2e new " your@address
+.BI "r2e add " http://feed.url/somewhere.rss
 .BI "r2e run "
 .RE
 .P
@@ -30,12 +30,10 @@ want things be sent you automatically.
 Create a new feedfile. If the second option is specified, it sets the
 default email address that mails are sent to.
 .TP
-.B add url ... [youremail] [bonus_header]
-Subscribe to a feed. The leading option(s) is the URL of the feed.
-The first optional trailing argument is the email address to send new items to.
-The last optional trailing argument is an extra header added to the Email
-(useful for procmail(1) processing).
-Repeat this command for each feed you want to subscribe to.
+.B add url [youremail]
+Subscribe to a feed. The first option is the URL of the feed.
+The optional second option is the email address to send new items to.
+Repeat for each feed you want to subscribe to.
 .TP
 .B run [\-\-no\-send] [num]
 Scan the feeds and send emails for new items. This can be run in a cron
