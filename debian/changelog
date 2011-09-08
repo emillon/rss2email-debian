@@ -2,7 +2,8 @@ rss2email (1:2.71-0.1) UNRELEASED; urgency=low
 
   * Non-maintainer upload.
   * New upstream release.
-    - don't ship html2text, depend on it instead (Closes: #555447, #570126).
+    - don't ship html2text, depend on it instead
+      (Closes: #555447, #570126, #484034).
     - Feed URL is included in a header (Closes: #447144, #518410).
     - OPML import/export is now possible (Closes: #248056).
     - pausing/resuming feed is now possible (Closes: #407822).
@@ -18,8 +19,9 @@ rss2email (1:2.71-0.1) UNRELEASED; urgency=low
   * Add working debian/watch file.
   * Add build-{arch,indep} targets.
   * Switch from python-support to dh_python2.
+  * 
 
- -- Etienne Millon <etienne.millon@gmail.com>  Thu, 08 Sep 2011 11:40:02 +0200
+ -- Etienne Millon <etienne.millon@gmail.com>  Thu, 08 Sep 2011 12:59:48 +0200
 
 rss2email (1:2.65-1) unstable; urgency=low
 
