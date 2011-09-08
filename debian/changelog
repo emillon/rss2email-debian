@@ -5,6 +5,7 @@ rss2email (1:2.71-0.1) UNRELEASED; urgency=low
     - don't ship html2text, depend on it instead (Closes: #555447, #570126).
     - Feed URL is included in a header (Closes: #447144, #518410).
     - OPML import/export is now possible (Closes: #248056).
+    - pausing/resuming feed is now possible (Closes: #407822).
     - new patch setting __version__ to the correct number.
   * debian/copyright :
     - rss2email can be used under the GPL v2 or v3 (Closes: #567584).
@@ -18,7 +19,7 @@ rss2email (1:2.71-0.1) UNRELEASED; urgency=low
   * Add build-{arch,indep} targets.
   * Switch from python-support to dh_python2.
 
- -- Etienne Millon <etienne.millon@gmail.com>  Thu, 08 Sep 2011 11:30:50 +0200
+ -- Etienne Millon <etienne.millon@gmail.com>  Thu, 08 Sep 2011 11:40:02 +0200
 
 rss2email (1:2.65-1) unstable; urgency=low
 
