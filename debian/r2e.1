@@ -54,6 +54,12 @@ List all your currently subscribed feeds.
 .TP
 .B delete n
 Delete a feed, using its number from the list command.
+.TP
+.B pause n
+Temporarily ignore a feed. A paused feed won't be updated at all.
+.TP
+.B unpause n
+Re-enable updates from a feed.
 .SH "CONFIGURATION"
 The program's behavior can be controlled via the ~/.rss2email/config.py
 config file. The file is a python file, so variables are set using a syntax
