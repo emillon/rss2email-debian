@@ -1,4 +1,4 @@
-rss2email (1:2.71-0.1) UNRELEASED; urgency=low
+rss2email (1:2.71-0.1) unstable; urgency=low
 
   * Non-maintainer upload.
   * New upstream release.
@@ -19,9 +19,8 @@ rss2email (1:2.71-0.1) UNRELEASED; urgency=low
   * Add working debian/watch file.
   * Add build-{arch,indep} targets.
   * Switch from python-support to dh_python2.
-  * 
 
- -- Etienne Millon <etienne.millon@gmail.com>  Thu, 08 Sep 2011 12:59:48 +0200
+ -- Etienne Millon <etienne.millon@gmail.com>  Thu, 08 Sep 2011 13:50:15 +0200
 
 rss2email (1:2.65-1) unstable; urgency=low
 
