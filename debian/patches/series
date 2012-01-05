@@ -2,3 +2,4 @@
 0002-wrapper.patch
 0003-Setup-the-correct-version-number-in-rss2email.py.patch
 0004-convert-tabs-to-spaces.patch
+0005-Use-a-simpler-default-email-address.patch

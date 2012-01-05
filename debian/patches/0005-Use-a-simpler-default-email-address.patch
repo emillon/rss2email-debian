@@ -1,0 +1,40 @@
+From: Etienne Millon <etienne.millon@gmail.com>
+Date: Thu, 5 Jan 2012 17:12:02 +0100
+Subject: Use a simpler default email address
+
+Fixes #464077.
+
+As explained by the submitter, user@rss2email.invalid is less
+verbose and simpler to understand.
+---
+ config.py.example |    2 +-
+ rss2email.py      |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/config.py.example b/config.py.example
+index 586ac5d..cdd760b 100755
+--- a/config.py.example
++++ b/config.py.example
+@@ -1,7 +1,7 @@
+ ### Options for configuring rss2email ###
+ 
+ # The email address messages are from by default:
+-DEFAULT_FROM = "bozo@dev.null.invalid"
++DEFAULT_FROM = "user@rss2email.invalid"
+ 
+ # 1: Send text/html messages when possible.
+ # 0: Convert HTML to plain text.
+diff --git a/rss2email.py b/rss2email.py
+index 4651f56..9735b28 100755
+--- a/rss2email.py
++++ b/rss2email.py
+@@ -29,7 +29,7 @@ urllib2.install_opener(urllib2.build_opener())
+ ### Vaguely Customizable Options ###
+ 
+ # The email address messages are from by default:
+-DEFAULT_FROM = "bozo@dev.null.invalid"
++DEFAULT_FROM = "user@rss2email.invalid"
+ 
+ # 1: Send text/html messages when possible.
+ # 0: Convert HTML to plain text.
+-- 
