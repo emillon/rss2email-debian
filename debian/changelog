@@ -1,6 +1,7 @@
 rss2email (1:2.71-0.2) unstable; urgency=low
 
   * Non-maintainer upload.
+  * r2e.1 : mention how to use authenticated feeds (Closes: #526124).
   * New patches :
     - convert tabs to spaces (Closes: #520911).
     - change default email address (Closes: #464077).
