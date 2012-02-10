@@ -1,12 +1,15 @@
 rss2email (1:2.71-0.2) unstable; urgency=low
 
   * Non-maintainer upload.
-  * r2e.1 : mention how to use authenticated feeds (Closes: #526124).
+  * r2e.1 :
+    - mention how to use authenticated feeds (Closes: #526124).
+    - fix typo on opmlimport / opmlexport
+      (thanks to Cristian Rigamonti, Closes: #659292)
   * New patches :
     - convert tabs to spaces (Closes: #520911).
     - change default email address (Closes: #464077).
 
- -- Etienne Millon <etienne.millon@gmail.com>  Thu, 05 Jan 2012 17:13:52 +0100
+ -- Etienne Millon <etienne.millon@gmail.com>  Fri, 10 Feb 2012 11:42:31 +0100
 
 rss2email (1:2.71-0.1) unstable; urgency=low
 
