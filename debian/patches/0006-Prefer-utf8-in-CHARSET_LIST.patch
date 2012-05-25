@@ -31,4 +31,3 @@ index 9735b28..69998db 100755
  
  from email.MIMEText import MIMEText
  from email.Header import Header
--- 

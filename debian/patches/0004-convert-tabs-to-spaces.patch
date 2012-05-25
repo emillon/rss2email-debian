@@ -4,7 +4,7 @@ Subject: convert tabs to spaces
 
 ---
  rss2email.py | 1402 +++++++++++++++++++++++++++++-----------------------------
- 1 files changed, 701 insertions(+), 701 deletions(-)
+ 1 file changed, 701 insertions(+), 701 deletions(-)
 
 diff --git a/rss2email.py b/rss2email.py
 index 7696d99..4651f56 100755
@@ -1506,4 +1506,3 @@ index 7696d99..4651f56 100755
 +                print
 +                print __doc__
  
--- 

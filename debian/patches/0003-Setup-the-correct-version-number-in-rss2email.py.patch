@@ -6,7 +6,7 @@ This version is 2.71, but __version__ incorrectly states that it is 2.70.
 This number is used in the User-Agent string and in error messages.
 ---
  rss2email.py |    2 +-
- 1 files changed, 1 insertions(+), 1 deletions(-)
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/rss2email.py b/rss2email.py
 index 0dc2d04..7696d99 100755
@@ -21,4 +21,3 @@ index 0dc2d04..7696d99 100755
  __author__ = "Lindsey Smith (lindsey@allthingsrss.com)"
  __copyright__ = "(C) 2004 Aaron Swartz. GNU GPL 2 or 3."
  ___contributors__ = ["Dean Jackson", "Brian Lalor", "Joey Hess", 
--- 

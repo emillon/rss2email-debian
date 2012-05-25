@@ -4,7 +4,7 @@ Subject: wrapper
 
 ---
  r2e |   16 +++++++++++++++-
- 1 files changed, 15 insertions(+), 1 deletions(-)
+ 1 file changed, 15 insertions(+), 1 deletion(-)
 
 diff --git a/r2e b/r2e
 index e582fae..ed735cf 100755
@@ -28,4 +28,3 @@ index e582fae..ed735cf 100755
 +fi
 +cd "$dir"
 +exec python /usr/share/rss2email/rss2email.py feeds.dat $*
--- 
