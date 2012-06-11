@@ -1,4 +1,4 @@
-rss2email (1:2.71-0.2) UNRELEASED; urgency=low
+rss2email (1:2.71-0.2) unstable; urgency=low
 
   * Non-maintainer upload.
   * r2e.1 :
@@ -13,7 +13,7 @@ rss2email (1:2.71-0.2) UNRELEASED; urgency=low
       Jakub Wilk).
   * Bump Standards-Version to 3.9.3 (no changes needed).
 
- -- Etienne Millon <etienne.millon@gmail.com>  Mon, 20 Feb 2012 15:31:26 +0100
+ -- Etienne Millon <etienne.millon@gmail.com>  Mon, 11 Jun 2012 22:38:44 +0200
 
 rss2email (1:2.71-0.1) unstable; urgency=low
 
