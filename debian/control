@@ -6,6 +6,8 @@ Build-Depends: debhelper (>= 7.2.8)
 Build-Depends-Indep: python (>= 2.6.6-3~)
 Standards-Version: 3.9.3
 Homepage: http://www.allthingsrss.com/rss2email/
+Vcs-Git: git://git.debian.org/users/emillon-guest/rss2email.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=users/emillon-guest/rss2email.git
 
 Package: rss2email
 Architecture: all

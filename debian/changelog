@@ -11,7 +11,9 @@ rss2email (1:2.71-1) unstable; urgency=low
     - change default CHARSET_LIST to prefer utf-8 (Closes: #659920).
     - avoid header injection in email headers (Closes: #526064, thanks to
       Jakub Wilk).
-  * Bump Standards-Version to 3.9.3 (no changes needed).
+  * debian/control:
+    - Bump Standards-Version to 3.9.3 (no changes needed).
+    - Add VCS-* fields.
 
  -- Etienne Millon <etienne.millon@gmail.com>  Tue, 12 Jun 2012 14:15:06 +0200
 
