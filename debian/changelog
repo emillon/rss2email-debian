@@ -1,6 +1,6 @@
-rss2email (1:2.71-0.2) unstable; urgency=low
+rss2email (1:2.71-1) unstable; urgency=low
 
-  * Non-maintainer upload.
+  * New maintainer.
   * r2e.1 :
     - mention how to use authenticated feeds (Closes: #526124).
     - fix typo on opmlimport / opmlexport
@@ -13,7 +13,7 @@ rss2email (1:2.71-0.2) unstable; urgency=low
       Jakub Wilk).
   * Bump Standards-Version to 3.9.3 (no changes needed).
 
- -- Etienne Millon <etienne.millon@gmail.com>  Mon, 11 Jun 2012 22:38:44 +0200
+ -- Etienne Millon <etienne.millon@gmail.com>  Tue, 12 Jun 2012 14:15:06 +0200
 
 rss2email (1:2.71-0.1) unstable; urgency=low
 
