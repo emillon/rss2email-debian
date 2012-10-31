@@ -5,3 +5,4 @@
 0005-Use-a-simpler-default-email-address.patch
 0006-Prefer-utf8-in-CHARSET_LIST.patch
 0007-Fix-email-header-injection.patch
+0008-Use-DEFAULT_FROM-for-envelope-sender.patch

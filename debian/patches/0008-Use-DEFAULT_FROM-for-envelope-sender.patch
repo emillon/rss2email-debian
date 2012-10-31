@@ -1,0 +1,26 @@
+From: Etienne Millon <me@emillon.org>
+Date: Wed, 31 Oct 2012 18:06:44 +0100
+Subject: Use DEFAULT_FROM for envelope sender
+
+With FORCE_FROM=0 and SMTP_SEND=1, the envelope sender should still be
+DEFAULT_FROM. Otherwise the feed author would receive error messages in
+case of delivery problems.
+
+Bug-Debian: http://bugs.debian.org/500860
+---
+ rss2email.py |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rss2email.py b/rss2email.py
+index a6c3cbe..e6fc9ed 100755
+--- a/rss2email.py
++++ b/rss2email.py
+@@ -219,7 +219,7 @@ def send(sender, recipient, subject, body, contenttype, extraheaders=None, smtps
+                                                 print >>warn, "Reason:", e.reason
+                                         sys.exit(1)
+                                         
+-                smtpserver.sendmail(sender, recipient, msg_as_string)
++                smtpserver.sendmail(DEFAULT_FROM, recipient, msg_as_string)
+                 return smtpserver
+ 
+         else:
