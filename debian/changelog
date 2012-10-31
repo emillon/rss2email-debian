@@ -1,3 +1,9 @@
+rss2email (1:2.71-2) UNRELEASED; urgency=low
+
+  * 
+
+ -- Etienne Millon <etienne.millon@gmail.com>  Wed, 31 Oct 2012 18:10:18 +0100
+
 rss2email (1:2.71-1) unstable; urgency=low
 
   * New maintainer.
