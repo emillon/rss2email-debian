@@ -1,8 +1,9 @@
-rss2email (1:2.71-2) UNRELEASED; urgency=low
+rss2email (1:2.71-2) unstable; urgency=low
 
-  * 
+  * Fix encoding of From and To headers.
+    Thanks to Thorsten Glaser (Closes: #638994)
 
- -- Etienne Millon <etienne.millon@gmail.com>  Wed, 31 Oct 2012 18:10:18 +0100
+ -- Etienne Millon <etienne.millon@gmail.com>  Wed, 23 Jan 2013 16:37:22 +0100
 
 rss2email (1:2.71-1) unstable; urgency=low
 
