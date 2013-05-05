@@ -11,7 +11,7 @@ Vcs-Browser: http://anonscm.debian.org/gitweb/?p=users/emillon-guest/rss2email.g
 
 Package: rss2email
 Architecture: all
-Depends: ${python:Depends}, ${misc:Depends}, python-feedparser, python-html2text
+Depends: ${python3:Depends}, ${misc:Depends}, python-feedparser, python-html2text
 Description: receive RSS feeds by email
  rss2email is a simple program which you can run in your crontab.
  It watches RSS (or Atom) feeds and sends you a nicely formatted
