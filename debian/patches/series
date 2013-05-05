@@ -1,8 +1,0 @@
-0001-remove-newlines.patch
-0002-wrapper.patch
-0003-Setup-the-correct-version-number-in-rss2email.py.patch
-0004-convert-tabs-to-spaces.patch
-0005-Use-a-simpler-default-email-address.patch
-0006-Prefer-utf8-in-CHARSET_LIST.patch
-0007-Fix-email-header-injection.patch
-0008-Fix-encoding-of-From-and-To-headers.patch
