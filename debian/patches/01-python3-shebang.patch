@@ -1,0 +1,12 @@
+Correct python3 shebang
+
+"python" refers to a python 2.x interpreter, at least on Debian systems.
+
+--- a/r2e
++++ b/r2e
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ import rss2email.main
+ 
