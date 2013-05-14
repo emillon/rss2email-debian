@@ -1,6 +1,8 @@
 # -*- encoding: utf-8 -*-
 #
-# Copyright (C) 2012-2013 W. Trevor King <wking@tremily.us>
+# Copyright (C) 2012-2013 Dmitry Bogatov <KAction@gnu.org>
+#                         George Saunders <georgesaunders@gmail.com>
+#                         W. Trevor King <wking@tremily.us>
 #
 # This file is part of rss2email.
 #
@@ -28,10 +30,12 @@ from email.header import Header as _Header
 from email.mime.text import MIMEText as _MIMEText
 from email.utils import formataddr as _formataddr
 from email.utils import parseaddr as _parseaddr
+import imaplib as _imaplib
 import io as _io
 import smtplib as _smtplib
 import subprocess as _subprocess
 import sys as _sys
+import time as _time
 
 from . import LOG as _LOG
 from . import config as _config
@@ -163,6 +167,37 @@ def smtp_send(sender, recipient, message, config=None, section='DEFAULT'):
     smtp.send_message(message, sender, [recipient])
     smtp.quit()
 
+def imap_send(message, config=None, section='DEFAULT'):
+    if config is None:
+        config = _config.CONFIG
+    server = config.get(section, 'imap-server')
+    port = config.getint(section, 'imap-port')
+    _LOG.debug('sending message to {}:{}'.format(server, port))
+    ssl = config.getboolean(section, 'imap-ssl')
+    if ssl:
+        imap = _imaplib.IMAP4_SSL(server, port)
+    else:
+        imap = _imaplib.IMAP4(server, port)
+    try:
+        if config.getboolean(section, 'imap-auth'):
+            username = config.get(section, 'imap-username')
+            password = config.get(section, 'imap-password')
+            try:
+                if not ssl:
+                    imap.starttls()
+                imap.login(username, password)
+            except KeyboardInterrupt:
+                raise
+            except Exception as e:
+                raise _error.IMAPAuthenticationError(
+                    server=server, username=username)
+        mailbox = config.get(section, 'imap-mailbox')
+        date = _imaplib.Time2Internaldate(_time.localtime())
+        message_bytes = _flatten(message)
+        imap.append(mailbox, None, date, message_bytes)
+    finally:
+        imap.logout()
+
 def _decode_header(header):
     """Decode RFC-2047-encoded headers to Unicode strings
 
@@ -177,7 +212,6 @@ def _decode_header(header):
     if isinstance(header, _Header):
         return str(header)
     chunks = []
-    _LOG.critical(_email_header.decode_header(header))
     for chunk,charset in _email_header.decode_header(header):
         if charset is None:
             if isinstance(chunk, bytes):
@@ -298,7 +332,14 @@ def sendmail_send(sender, recipient, message, config=None, section='DEFAULT'):
         raise _error.SendmailError() from e
 
 def send(sender, recipient, message, config=None, section='DEFAULT'):
-    if config.getboolean(section, 'use-smtp'):
-        smtp_send(sender, recipient, message)
+    protocol = config.get(section, 'email-protocol')
+    if protocol == 'smtp':
+        smtp_send(
+            sender=sender, recipient=recipient, message=message,
+            config=config, section=section)
+    elif protocol == 'imap':
+        imap_send(message=message, config=config, section=section)
     else:
-        sendmail_send(sender, recipient, message)
+        sendmail_send(
+            sender=sender, recipient=recipient, message=message,
+            config=config, section=section)

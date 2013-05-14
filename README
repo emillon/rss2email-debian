@@ -58,12 +58,12 @@ from several equivalent formats.
 
 1. A ``.zip`` file (suggested for Microsoft Windows users)::
 
-    $ wget https://github.com/wking/rss2email/archive/v3.3.zip
+    $ wget https://github.com/wking/rss2email/archive/v3.4.zip
     $ unzip rss2email-*.zip
 
 2. A ``.tar.gz`` file (suggested for everyone else)::
 
-    $ wget https://github.com/wking/rss2email/archive/v3.3.tar.gz
+    $ wget https://github.com/wking/rss2email/archive/v3.4.tar.gz
     $ tar xvf rss2email*.tar.gz
 
 3. A Git_ checkout (suggested for developers)::
@@ -158,6 +158,9 @@ following to your configuration file::
 You can make the email address whatever you want, but your mail server
 requires that the ``yoursite.com`` part actually exists.
 
+You can also add custom filters, see the example and documentation in
+``rss2email/post_process/prettify.py`` for more information.
+
 SMTP
 ----
 
@@ -226,7 +229,7 @@ mailing list archives are available on Gmane_.
 .. _openSUSE package:
   https://build.opensuse.org/package/show?package=rss2email&project=server%3Amail
 .. _NetBSD package:
-  ftp://ftp.netbsd.org/pub/NetBSD/NetBSD-current/pkgsrc/mail/rss2email/README.html
+  http://ftp.netbsd.org/pub/pkgsrc/current/pkgsrc/mail/rss2email/README.html
 .. _Gentoo package:
   http://gpo.zugaina.org/net-mail/rss2email
 .. _Python: http://www.python.org

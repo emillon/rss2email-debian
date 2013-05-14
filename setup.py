@@ -1,4 +1,5 @@
-# Copyright (C) 2012-2013 W. Trevor King <wking@tremily.us>
+# Copyright (C) 2012-2013 Arun Persaud <apersaud@lbl.gov>
+#                         W. Trevor King <wking@tremily.us>
 #
 # This file is part of rss2email.
 #
@@ -51,7 +52,7 @@ setup(
         'Topic :: Communications :: Email',
         'Topic :: Software Development :: Libraries :: Python Modules',
         ],
-    packages=['rss2email'],
+    packages=['rss2email', 'rss2email.post_process'],
     scripts=['r2e'],
     provides=['rss2email'],
     requires=[
