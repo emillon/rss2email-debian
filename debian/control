@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Etienne Millon <etienne.millon@gmail.com>
 Build-Depends: debhelper (>= 7.2.8)
 Build-Depends-Indep: python3 (>= 3.2)
-Standards-Version: 3.9.3
+Standards-Version: 3.9.4
 X-Python3-Version: 3.2
 Homepage: http://www.allthingsrss.com/rss2email/
 Vcs-Git: git://anonscm.debian.org/users/emillon-guest/rss2email.git

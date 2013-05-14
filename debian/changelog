@@ -4,6 +4,7 @@ rss2email (1:3.4-1~exp1) UNRELEASED; urgency=low
     (Closes: #349061, #309869, #289191)
     - drop all patches, applied upstream
     - new patch to correct shebang line
+  * Bump Standards-Version to 3.9.4 (no changes needed).
   * Update watch file.
   * Suggest esmtp to deliver mail directly to a MDA. (Closes: #446160)
   * Canonicalize Vcs-Git field.
