@@ -41,12 +41,19 @@ class Config (_configparser.ConfigParser):
         super(Config, self).__init__(
             dict_type=dict_type, interpolation=interpolation, **kwargs)
 
-    def _setup(self, section='DEFAULT'):
+    def setup_html2text(self, section='DEFAULT'):
+        """Setup html2text globals to match our configuration
+
+        Html2text unfortunately uses globals (instead of keyword
+        arguments) to configure its conversion.
+        """
+        if section not in self:
+            section = 'DEFAULT'
         _html2text.UNICODE_SNOB = self.getboolean(
-            section, 'unicode-snob', fallback=False)
+            section, 'unicode-snob')
         _html2text.LINKS_EACH_PARAGRAPH = self.getboolean(
-            section, 'links-after-each-paragaph', fallback=False)
-        _html2text.BODY_WIDTH = self.getint(section, 'body-width', fallback=0)
+            section, 'links-after-each-paragraph')
+        _html2text.BODY_WIDTH = self.getint(section, 'body-width')
 
 
 CONFIG = Config()
@@ -81,6 +88,9 @@ CONFIG['DEFAULT'] = _collections.OrderedDict((
         # True: Fetch, process, and email feeds.
         # False: Don't fetch, process, or email feeds
         ('active', str(True)),
+        # True: Send a single, multi-entry email per feed per rss2email run.
+        # False: Send a single email per entry.
+        ('digest', str(False)),
         # True: Generate Date header based on item's date, when possible.
         # False: Generate Date header based on time sent.
         ('date-header', str(False)),
@@ -102,6 +112,12 @@ CONFIG['DEFAULT'] = _collections.OrderedDict((
         # User processing hooks.  Note the space after the module name.
         # Example: post-process = 'rss2email.post_process.downcase downcase_message'
         ('post-process', ''),
+        # User processing hooks for digest messages.  If 'digest' is
+        # enabled, the usual 'post-process' hook gets to massage the
+        # per-entry messages, but this hook is called with the full
+        # digest message before it is mailed.
+        # Example: digest-post-process = 'rss2email.post_process.downcase downcase_message'
+        ('digest-post-process', ''),
         ## HTML conversion
         # True: Send text/html messages when possible.
         # False: Convert HTML to plain text.

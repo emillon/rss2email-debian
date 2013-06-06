@@ -1,3 +1,9 @@
+v3.5 (2013-06-05)
+    * Added digest generation and post-processing hooks.
+    * Fix html2text configuration (ignored since 2012-10-04).
+    * Fix opmlexport crash due to orphaned feed data.
+    * Use feed names in OPML 'text' attributes.
+
 v3.4 (2013-05-14)
     * Added post-processing hooks for user-specified message manipulation.
     * Added settings for IMAP delivery.  The old `use-smtp` boolean has been replaced by a new `email-protocol` setting.  Non-IMAP users should adjust their configuration to set `email-protocol` to either `sendmail` or `smtp`.
