@@ -1,4 +1,4 @@
-rss2email (1:3.4-1~exp1) UNRELEASED; urgency=low
+rss2email (1:3.5-1~exp2) UNRELEASED; urgency=low
 
   * New upstream release.
     (Closes: #349061, #309869, #289191)
@@ -9,7 +9,7 @@ rss2email (1:3.4-1~exp1) UNRELEASED; urgency=low
   * Suggest esmtp to deliver mail directly to a MDA. (Closes: #446160)
   * Canonicalize Vcs-Git field.
 
- -- Etienne Millon <etienne.millon@gmail.com>  Sun, 05 May 2013 23:29:23 +0200
+ -- Etienne Millon <etienne.millon@gmail.com>  Thu, 06 Jun 2013 11:47:58 +0200
 
 rss2email (1:2.71-2) unstable; urgency=low
 
