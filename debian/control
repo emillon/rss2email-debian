@@ -15,8 +15,8 @@ Vcs-Browser: http://anonscm.debian.org/gitweb/?p=users/emillon-guest/rss2email.g
 Package: rss2email
 Architecture: all
 Depends:
- python-feedparser,
- python-html2text,
+ python3-feedparser,
+ python3-html2text,
  ${misc:Depends},
  ${python3:Depends}
 Suggests:
