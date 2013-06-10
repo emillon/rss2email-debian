@@ -2,8 +2,10 @@ Source: rss2email
 Section: mail
 Priority: optional
 Maintainer: Etienne Millon <etienne.millon@gmail.com>
-Build-Depends: debhelper (>= 7.2.8)
-Build-Depends-Indep: python3 (>= 3.2)
+Build-Depends:
+ debhelper (>= 7.2.8)
+Build-Depends-Indep:
+ python3 (>= 3.2)
 Standards-Version: 3.9.4
 X-Python3-Version: 3.2
 Homepage: http://www.allthingsrss.com/rss2email/
@@ -12,8 +14,13 @@ Vcs-Browser: http://anonscm.debian.org/gitweb/?p=users/emillon-guest/rss2email.g
 
 Package: rss2email
 Architecture: all
-Depends: ${python3:Depends}, ${misc:Depends}, python-feedparser, python-html2text
-Suggests: esmtp
+Depends:
+ python-feedparser,
+ python-html2text,
+ ${misc:Depends},
+ ${python3:Depends}
+Suggests:
+ esmtp
 Description: receive RSS feeds by email
  rss2email is a simple program which you can run in your crontab.
  It watches RSS (or Atom) feeds and sends you a nicely formatted
