@@ -1,0 +1,43 @@
+#! /usr/bin/python2
+#
+# Migrate data from the rss2email 2.x format to the 3.x format.
+#
+# Copyright (c) 2013, Etienne Millon <me@emillon.org>
+# Distributable under the GPL version 2 or later
+
+import os.path
+import pickle
+
+
+class Feed:
+    def __init__(self, url, to):
+        self.url, self.etag, self.modified, self.seen = url, None, None, {}
+        self.active = True
+        self.to = to
+
+    def __repr__(self):
+        fmt = '\n'.join(['Feed(url={url},',
+                         '     etag={etag},',
+                         '     modified={modified},',
+                         '     seen={seen},',
+                         '     active={active},',
+                         '     to={to},',
+                         ')',
+                         ])
+        return fmt.format(**self.__dict__)
+
+
+def main():
+    old_feed_data_file = os.path.expanduser('~/.rss2email/feeds.dat')
+    with open(old_feed_data_file) as f:
+        data = pickle.load(f)
+
+    username = data[0]
+    feeds = data[1:]
+
+    print username
+    for feed in feeds:
+        print feed
+
+if __name__ == '__main__':
+    main()

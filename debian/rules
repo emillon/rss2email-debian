@@ -18,4 +18,6 @@ override_dh_auto_install:
 	done
 
 override_dh_python3:
-	dh_python3 --shebang=/usr/bin/python3
+	# Workaround to ignore r2e-migrate (see #719236)
+	dh_python3 --ignore-shebangs
+	sed -i '1s,.*,#! /usr/bin/python3,' debian/rss2email/usr/bin/r2e
