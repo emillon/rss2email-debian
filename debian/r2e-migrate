@@ -7,6 +7,9 @@
 
 import os.path
 import pickle
+import string
+import subprocess
+import sys
 
 
 class Feed:
@@ -27,17 +30,59 @@ class Feed:
         return fmt.format(**self.__dict__)
 
 
+def new_db_exists():
+    config = os.path.expanduser('~/.config/rss2email.cfg')
+    data = os.path.expanduser('~/.local/rss2email.json')
+    return os.path.exists(config) or os.path.exists(data)
+
+
+def set_email(s):
+    return subprocess.call(['r2e', 'email', s])
+
+
+def slugify_char(c):
+    allowed = string.ascii_letters + string.digits + '._-'
+    if c in allowed:
+        return c
+    else:
+        return '_'
+
+
+def slugify(s):
+    return ''.join([slugify_char(c) for c in s])
+
+
+def add(url):
+    return subprocess.call(['r2e', 'add', slugify(url), url])
+
+
 def main():
+    if new_db_exists():
+        print """
+        It seems that a rss2email 3.x database already exists, exiting.
+        If you want to import your old (rss2email 2.x) database, please remove
+        ~/.config/rss2email.cfg and ~/.local/rss2email.json and re-run
+        r2e-migrate.
+        """
+        sys.exit(1)
+
+
+
     old_feed_data_file = os.path.expanduser('~/.rss2email/feeds.dat')
     with open(old_feed_data_file) as f:
         data = pickle.load(f)
 
-    username = data[0]
+    email = data[0]
     feeds = data[1:]
 
-    print username
+    print 'Default email address: {}'.format(email)
+    set_email(email)
+
+    print 'Adding feeds:'
     for feed in feeds:
-        print feed
+        url = feed.url
+        print url
+        add(url)
 
 if __name__ == '__main__':
     main()
