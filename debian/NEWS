@@ -1,4 +1,4 @@
-rss2email (1:3.5-1~exp1.1) UNRELEASED; urgency=low
+rss2email (1:3.5-1~exp1) experimental; urgency=low
 
   rss2email 3.x introduces a new, incompatible format for configuration and
   feed data. Please review the r2e(1) manpage for details on the new
@@ -8,7 +8,7 @@ rss2email (1:3.5-1~exp1.1) UNRELEASED; urgency=low
   executable: it will set up your default email address and feed list, but not
   not the of already seen articles.
 
- -- Etienne Millon <me@emillon.org>  Mon, 12 Aug 2013 15:26:54 +0200
+ -- Etienne Millon <me@emillon.org>  Wed, 04 Sep 2013 09:35:18 +0200
 
 rss2email (2.30-1) unstable; urgency=low
 
