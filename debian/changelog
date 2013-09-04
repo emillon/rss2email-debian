@@ -8,6 +8,7 @@ rss2email (1:3.5-1~exp1) UNRELEASED; urgency=low
   * Update watch file.
   * Suggest esmtp to deliver mail directly to a MDA. (Closes: #446160)
   * Canonicalize Vcs-Git field.
+  * Update my email address.
 
  -- Etienne Millon <etienne.millon@gmail.com>  Thu, 06 Jun 2013 11:47:58 +0200
 
