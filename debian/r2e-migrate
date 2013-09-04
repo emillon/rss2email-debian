@@ -1,4 +1,4 @@
-#! /usr/bin/python2
+#! /usr/bin/python2.7
 #
 # Migrate data from the rss2email 2.x format to the 3.x format.
 #
