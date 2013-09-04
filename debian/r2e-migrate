@@ -3,7 +3,18 @@
 # Migrate data from the rss2email 2.x format to the 3.x format.
 #
 # Copyright (c) 2013, Etienne Millon <me@emillon.org>
-# Distributable under the GPL version 2 or later
+# Redistributable under the GPL version 2 or later
+#
+# Please report bugs and suggestion on the Debian bugtracker using the
+# "reportbug rss2email" command.
+#
+# Changelog:
+#
+#   v1 (2013-08-12)
+#   ===============
+#
+#      - Migrate feed names only.
+#
 
 import os.path
 import pickle
@@ -65,8 +76,6 @@ def main():
         r2e-migrate.
         """
         sys.exit(1)
-
-
 
     old_feed_data_file = os.path.expanduser('~/.rss2email/feeds.dat')
     with open(old_feed_data_file) as f:
