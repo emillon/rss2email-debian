@@ -1,7 +1,7 @@
 rss2email (1:3.5-1~exp1) UNRELEASED; urgency=low
 
   * New upstream release.
-    (Closes: #349061, #309869, #289191)
+    (Closes: #708824, #349061, #309869, #289191)
     - drop all patches, applied upstream
     - add a r2e-migrate script to convert to the new data format
   * Bump Standards-Version to 3.9.4 (no changes needed).
