@@ -66,6 +66,8 @@ def slugify(s):
 def add(url):
     return subprocess.call(['r2e', 'add', slugify(url), url])
 
+def pause(index):
+    return subprocess.call(['r2e', 'pause', str(index)])
 
 def main():
     if new_db_exists():
@@ -88,10 +90,12 @@ def main():
     set_email(email)
 
     print 'Adding feeds:'
-    for feed in feeds:
+    for i, feed in enumerate(feeds):
         url = feed.url
         print url
         add(url)
+        if not feed.active:
+            pause(i)
 
 if __name__ == '__main__':
     main()
