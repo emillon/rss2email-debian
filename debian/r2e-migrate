@@ -9,10 +9,11 @@
 # "reportbug rss2email" command.
 #
 # Changelog:
+
+#   v2 (2013-09-17)
+#      - Preserve paused status (Denis Laxalde)
 #
 #   v1 (2013-08-12)
-#   ===============
-#
 #      - Migrate feed names only.
 #
 
