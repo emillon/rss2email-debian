@@ -3,7 +3,7 @@ Section: mail
 Priority: optional
 Maintainer: Etienne Millon <me@emillon.org>
 Build-Depends:
- debhelper (>= 7.2.8)
+ debhelper (>= 9)
 Build-Depends-Indep:
  python3 (>= 3.2)
 Standards-Version: 3.9.4
