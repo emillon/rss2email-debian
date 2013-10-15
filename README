@@ -41,15 +41,15 @@ things are in place.
 1. Ensure that a version of Python_ ≥3.2 is installed.
 2. Install the required Python packages.
 
-  1. feedparser_
-  2. html2text_
+   * feedparser_
+   * html2text_
 
 3. Figure out how you are going to send outgoing email.  You have two
    options here: either use an STMP server or a local sendmail
    program.  So,
 
-  * determine your outgoing email server's SMTP address, or
-  * install sendmail (or a compatible replacement like postfix).
+   * determine your outgoing email server's SMTP address, or
+   * install sendmail (or a compatible replacement like postfix).
 
 Download
 ~~~~~~~~
@@ -59,12 +59,12 @@ from several equivalent formats.
 
 1. A ``.zip`` file (suggested for Microsoft Windows users)::
 
-    $ wget https://github.com/wking/rss2email/archive/v3.6.zip
+    $ wget https://github.com/wking/rss2email/archive/v3.7.zip
     $ unzip rss2email-*.zip
 
 2. A ``.tar.gz`` file (suggested for everyone else)::
 
-    $ wget https://github.com/wking/rss2email/archive/v3.6.tar.gz
+    $ wget https://github.com/wking/rss2email/archive/v3.7.tar.gz
     $ tar xvf rss2email*.tar.gz
 
 3. A Git_ checkout (suggested for developers)::

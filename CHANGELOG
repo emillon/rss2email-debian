@@ -1,3 +1,9 @@
+v3.7 (2013-10-11)
+    * Fix fallback for titles that contain malformed HTML.
+    * Fix atomic saves to avoid garbling config and data files if the disk is full.
+    * Convert the `friendly-name` boolean to the new `name-format` setting.  This allow users to customize how the friendly name is constructed.
+    * Demote guessed encodings logs from 'error' to 'warning'.
+
 v3.6 (2013-09-09)
     * Fix missing port argument for IMAPAuthenticationError.
     * Fix `<div id="entry>` syntax error in HTML mail.
