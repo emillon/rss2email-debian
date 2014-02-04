@@ -1,21 +1,7 @@
 #!/usr/bin/make -f
 
 %:
-	dh $@ --with python3
-
-override_dh_auto_clean:
-	python3 setup.py clean
-	rm -rf rss2email/__pycache__/ build/ rss2email/__init__.pyc
-
-override_dh_auto_build:
-	set -ex; for python in $(shell py3versions -r); do \
-		$$python setup.py build; \
-	done
-
-override_dh_auto_install:
-	set -ex; for python in $(shell py3versions -r); do \
-		$$python setup.py install --root=$(CURDIR)/debian/tmp --install-layout=deb; \
-	done
+	dh $@ --with python3 --buildsystem=pybuild
 
 override_dh_python3:
 	# Workaround to ignore r2e-migrate (see #719236)
