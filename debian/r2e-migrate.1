@@ -1,0 +1,24 @@
+.TH r2e\-migrate 1 "2013\-02\-04" 
+.SH NAME
+r2e\-migrate \- Migrate your data from rss2email 2.x to rss2email 3.x.
+.SH USAGE
+.IP
+.nf
+\f[C]
+r2e\-migrate
+\f[]
+.fi
+.PP
+Please note that you may still have to adapt your configuration.
+See \f[C]r2e(1)\f[].
+.SH FILES
+.PP
+2.x versions used to store configuration in
+\f[C]~/.rss2email/config.py\f[] and data in
+\f[C]~/.rss2email/feeds.dat\f[].
+.PP
+Now 3.x stores its configuration in
+\f[C]$XDG_CONFIG_HOME/rss2email.cfg\f[] and data in
+\f[C]$XDG_DATA_HOME/rss2email.json\f[].
+.SH AUTHORS
+Etienne Millon <me@emillon.org>.
