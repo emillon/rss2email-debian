@@ -9,7 +9,11 @@
 # "reportbug rss2email" command.
 #
 # Changelog:
-
+#
+#   v3 (2013-02-04)
+#      - Write status file (already-seen DB)
+#      - Fix path in error message
+#
 #   v2 (2013-09-17)
 #      - Preserve paused status (Denis Laxalde)
 #
@@ -17,6 +21,7 @@
 #      - Migrate feed names only.
 #
 
+import json
 import os.path
 import pickle
 import string
@@ -64,18 +69,20 @@ def slugify(s):
     return ''.join([slugify_char(c) for c in s])
 
 
-def add(url):
-    return subprocess.call(['r2e', 'add', slugify(url), url])
+def add(url, name):
+    return subprocess.call(['r2e', 'add', name, url])
 
-def pause(url):
-    return subprocess.call(['r2e', 'pause', slugify(url)])
+
+def pause(name):
+    return subprocess.call(['r2e', 'pause', name])
+
 
 def main():
     if new_db_exists():
         print """
         It seems that a rss2email 3.x database already exists, exiting.
         If you want to import your old (rss2email 2.x) database, please remove
-        ~/.config/rss2email.cfg and ~/.local/rss2email.json and re-run
+        ~/.config/rss2email.cfg and ~/.local/share/rss2email.json and re-run
         r2e-migrate.
         """
         sys.exit(1)
@@ -87,6 +94,10 @@ def main():
     email = data[0]
     feeds = data[1:]
 
+    status = {'version': 2,
+              'feeds': [],
+              }
+
     print 'Default email address: {}'.format(email)
     set_email(email)
 
@@ -94,9 +105,26 @@ def main():
     for feed in feeds:
         url = feed.url
         print url
-        add(url)
+        name = slugify(url)
+        add(url, name)
         if not feed.active:
-            pause(url)
+            pause(name)
+        modified = None
+        if feed.modified:
+            modified = unicode(feed.modified)
+        feed_status = {'seen': {},
+                       'etag': feed.etag,
+                       'name': unicode(name),
+                       'modified': modified,
+                       }
+        for k, v in feed.seen.items():
+            feed_status['seen'][k] = {'id': v}
+        status['feeds'].append(feed_status)
+
+    new_status_file = os.path.expanduser('~/.local/share/rss2email.json')
+    with open(new_status_file, 'w') as statf:
+        json.dump(status, statf)
+
 
 if __name__ == '__main__':
     main()
