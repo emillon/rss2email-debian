@@ -1,4 +1,4 @@
-rss2email (1:3.8-1~exp1) UNRELEASED; urgency=medium
+rss2email (1:3.8-1~exp1) experimental; urgency=medium
 
   * New upstream release.
   * Use pybuild.
@@ -7,7 +7,7 @@ rss2email (1:3.8-1~exp1) UNRELEASED; urgency=medium
     - Import status of feeds.
     - Add manpage.
 
- -- Etienne Millon <me@emillon.org>  Tue, 04 Feb 2014 18:04:17 +0100
+ -- Etienne Millon <me@emillon.org>  Thu, 06 Feb 2014 16:11:26 +0100
 
 rss2email (1:3.7-1~exp1) experimental; urgency=low
 

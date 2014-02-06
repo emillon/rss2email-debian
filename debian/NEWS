@@ -1,4 +1,4 @@
-rss2email (1:3.8-1~exp1) UNRELEASED; urgency=medium
+rss2email (1:3.8-1~exp1) experimental; urgency=medium
 
   r2e-migrate now imports feed status, which was the last missing feature for
   an upload in unstable.
