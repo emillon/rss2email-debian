@@ -1,8 +1,10 @@
 rss2email (1:3.8-1~exp2) UNRELEASED; urgency=medium
 
   * Fix nonsensical sentence in NEWS.Debian (Closes: #740370)
-  * Pick upstream commit to fix error message
-    when there is no default target email (Closes: #740384)
+  * Pick upstream commits:
+    - fix error message when there is no default target email
+      (Closes: #740384)
+    - fix User-Agent format (Closes: #742215)
 
  -- Etienne Millon <me@emillon.org>  Fri, 28 Feb 2014 22:27:03 +0100
 
