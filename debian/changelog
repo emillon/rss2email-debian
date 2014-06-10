@@ -1,5 +1,6 @@
-rss2email (1:3.8-1) UNRELEASED; urgency=medium
+rss2email (1:3.8-1) unstable; urgency=medium
 
+  * Upload to unstable.
   * Fix nonsensical sentence in NEWS.Debian (Closes: #740370)
   * Pick upstream commits:
     - fix error message when there is no default target email
@@ -7,7 +8,7 @@ rss2email (1:3.8-1) UNRELEASED; urgency=medium
     - fix User-Agent format (Closes: #742215)
   * r2e-migrate: support XDG directories (Closes: #740371)
 
- -- Etienne Millon <me@emillon.org>  Fri, 28 Feb 2014 22:27:03 +0100
+ -- Etienne Millon <me@emillon.org>  Tue, 10 Jun 2014 17:01:17 +0200
 
 rss2email (1:3.8-1~exp1) experimental; urgency=medium
 
