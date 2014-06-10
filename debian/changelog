@@ -1,4 +1,4 @@
-rss2email (1:3.8-1~exp2) UNRELEASED; urgency=medium
+rss2email (1:3.8-1) UNRELEASED; urgency=medium
 
   * Fix nonsensical sentence in NEWS.Debian (Closes: #740370)
   * Pick upstream commits:
