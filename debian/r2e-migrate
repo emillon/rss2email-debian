@@ -10,7 +10,7 @@
 #
 # Changelog:
 #
-#   v3 (2013-02-04)
+#   v3 (2014-02-04)
 #      - Write status file (already-seen DB)
 #      - Fix path in error message
 #
