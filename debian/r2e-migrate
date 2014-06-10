@@ -10,6 +10,9 @@
 #
 # Changelog:
 #
+#   v4 (2014-06-10)
+#      - support XDG directories
+#
 #   v3 (2014-02-04)
 #      - Write status file (already-seen DB)
 #      - Fix path in error message
@@ -27,6 +30,7 @@ import pickle
 import string
 import subprocess
 import sys
+import xdg.BaseDirectory
 
 
 class Feed:
@@ -47,10 +51,18 @@ class Feed:
         return fmt.format(**self.__dict__)
 
 
+def not_empty(g):
+    try:
+        g.next()
+        return True
+    except StopIteration:
+        return False
+
+
 def new_db_exists():
-    config = os.path.expanduser('~/.config/rss2email.cfg')
-    data = os.path.expanduser('~/.local/rss2email.json')
-    return os.path.exists(config) or os.path.exists(data)
+    config = xdg.BaseDirectory.load_config_paths('rss2email.cfg')
+    data = xdg.BaseDirectory.load_data_paths('rss2email.json')
+    return not_empty(config) or not_empty(data)
 
 
 def set_email(s):
@@ -82,8 +94,8 @@ def main():
         print """
         It seems that a rss2email 3.x database already exists, exiting.
         If you want to import your old (rss2email 2.x) database, please remove
-        ~/.config/rss2email.cfg and ~/.local/share/rss2email.json and re-run
-        r2e-migrate.
+        ~/.config/rss2email.cfg and ~/.local/share/rss2email.json (or XDG
+        equivalents) and re-run r2e-migrate.
         """
         sys.exit(1)
 
@@ -121,7 +133,9 @@ def main():
             feed_status['seen'][k] = {'id': v}
         status['feeds'].append(feed_status)
 
-    new_status_file = os.path.expanduser('~/.local/share/rss2email.json')
+    # save_data_path would work but rss2email uses a bare file
+    data_dir = xdg.BaseDirectory.xdg_data_home
+    new_status_file = os.path.join(data_dir, 'rss2email.json')
     with open(new_status_file, 'w') as statf:
         json.dump(status, statf)
 

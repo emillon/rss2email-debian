@@ -16,6 +16,7 @@ Package: rss2email
 Architecture: all
 Depends:
  python2.7,
+ python-xdg,
  python3-feedparser,
  python3-html2text,
  ${misc:Depends},

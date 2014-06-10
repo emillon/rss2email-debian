@@ -5,6 +5,7 @@ rss2email (1:3.8-1~exp2) UNRELEASED; urgency=medium
     - fix error message when there is no default target email
       (Closes: #740384)
     - fix User-Agent format (Closes: #742215)
+  * r2e-migrate: support XDG directories (Closes: #740371)
 
  -- Etienne Millon <me@emillon.org>  Fri, 28 Feb 2014 22:27:03 +0100
 
