@@ -33,7 +33,7 @@ after jessie is released.
  def run(*args, **kwargs):
      """The rss2email command line interface
  
-@@ -160,6 +166,13 @@
+@@ -160,6 +166,12 @@
          if args.func != _command.new:
              lock = args.func not in [_command.list, _command.opmlexport]
              feeds.load(lock=lock)
@@ -43,7 +43,6 @@ after jessie is released.
 +                  "You can migrate your data using r2e-migrate.\n"
 +                  "Please see /usr/share/doc/rss2email/NEWS.Debian.gz\n"
 +                  "and r2e-migrate(1) for more information.")
-+            _sys.exit(1)
          args.func(feeds=feeds, args=args)
      except _error.RSS2EmailError as e:
          e.log()
