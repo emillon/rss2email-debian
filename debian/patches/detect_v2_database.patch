@@ -1,0 +1,49 @@
+From: Etienne Millon <me@emillon.org>
+Forwarded: not-needed
+Bug-Debian: https://bugs.debian.org/752522
+Subject: Detect 2.x database
+
+As noted in #752522, it is quite confusing to have "r2e list" display nothing
+after an upgrade from 2.x to 3.x. Even though it is in NEWS.Debian, not all
+users read it so it is better to display a message if a 2.x database exists and
+no feeds are found.
+
+This is specific to the wheezy -> jessie upgrade, so will probably be dropped
+after jessie is released.
+
+--- a/rss2email/main.py
++++ b/rss2email/main.py
+@@ -19,6 +19,7 @@
+ 
+ import argparse as _argparse
+ import logging as _logging
++import os as _os
+ import sys as _sys
+ 
+ from . import __doc__ as _PACKAGE_DOCSTRING
+@@ -37,6 +38,11 @@
+         _sys.exit(0)
+ 
+ 
++def v2_database_exists():
++    path = _os.path.expanduser('~/.rss2email/feeds.dat')
++    return _os.path.isfile(path)
++
++
+ def run(*args, **kwargs):
+     """The rss2email command line interface
+ 
+@@ -160,6 +166,13 @@
+         if args.func != _command.new:
+             lock = args.func not in [_command.list, _command.opmlexport]
+             feeds.load(lock=lock)
++        if v2_database_exists() and not feeds:
++            print("A rss2email 2.x database exists, but it can't be used "
++                  "directly by this version of rss2email (3.x).\n"
++                  "You can migrate your data using r2e-migrate.\n"
++                  "Please see /usr/share/doc/rss2email/NEWS.Debian.gz\n"
++                  "and r2e-migrate(1) for more information.")
++            _sys.exit(1)
+         args.func(feeds=feeds, args=args)
+     except _error.RSS2EmailError as e:
+         e.log()

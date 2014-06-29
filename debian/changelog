@@ -1,3 +1,9 @@
+rss2email (1:3.8-2) UNRELEASED; urgency=medium
+
+  * Display a message if a 2.x database exists (Closes: #752522)
+
+ -- Etienne Millon <me@emillon.org>  Sun, 29 Jun 2014 12:42:59 +0200
+
 rss2email (1:3.8-1) unstable; urgency=medium
 
   * Upload to unstable.
