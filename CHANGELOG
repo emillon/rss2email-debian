@@ -1,4 +1,67 @@
+v3.9 (2014-09-01)
+    * Catch and error out if a user adds a feed with a duplicate name.
+    * Split sender into both sendmail's -F and -f.
+    * Fix an error with SMTPConnectionError inhertence order ("does not take keyword arguments").
+    * Add a new `smtp-ssl-protocol` setting, to select acceptable protocols for SMTP connections.
+    * Fix non-compliant User-Agent header for HTTP/1.1.
+    * Fix an error in the NoToEmailAddress invocation.
+    * Add a new `trust-link` setting, to prefer the `link` attribute over the `id` attribute for identifying entries.
+
+v3.8 (2014-01-18)
+    * Sluggify feed names on opmlimport.
+    * Allow Unicode letters and digits in feed names, instead of just ASCII lettters and digits.
+
+v3.7 (2013-10-11)
+    * Fix fallback for titles that contain malformed HTML.
+    * Fix atomic saves to avoid garbling config and data files if the disk is full.
+    * Convert the `friendly-name` boolean to the new `name-format` setting.  This allow users to customize how the friendly name is constructed.
+    * Demote guessed encodings logs from 'error' to 'warning'.
+
+v3.6 (2013-09-09)
+    * Fix missing port argument for IMAPAuthenticationError.
+    * Fix `<div id="entry>` syntax error in HTML mail.
+
+v3.5 (2013-06-05)
+    * Added digest generation and post-processing hooks.
+    * Fix html2text configuration (ignored since 2012-10-04).
+    * Fix opmlexport crash due to orphaned feed data.
+    * Use feed names in OPML 'text' attributes.
+
+v3.4 (2013-05-14)
+    * Added post-processing hooks for user-specified message manipulation.
+    * Added settings for IMAP delivery.  The old `use-smtp` boolean has been replaced by a new `email-protocol` setting.  Non-IMAP users should adjust their configuration to set `email-protocol` to either `sendmail` or `smtp`.
+
+v3.3 (2013-04-13)
+    * Fix SMTP message submission logic.
+    * Fix error inheritence (super() calls).
+    * Convert html2text parsing errors to `ProcessingError`s.
+    * Cleanup html2text error handling.
+    * Drop Google Reader rel-via manipulation.
+    * Drop the wrapping <table> elements from HTML mail
+
+v3.2 (2013-03-13)
+    * Use extended interpolation in configuration files, to allow percent signs (%).
+    * Added .as_string() fallback to email flattening (only used if `use-smtp = False` and `use-8bit = True`).
+    * Added sendmail configuration option.  Change this if you want to use an alternative, sendmail-compatible mailer.
+
+v3.1 (2013-02-14)
+    * Import __url__, __author__, and __email__ in rss2email.error, which fixes bugs in formatting a number of errors.
+
+v3.0 (2013-02-13)
+    * Changed project email (rss2email@tremily.us) and homepage (http://github.com/wking/rss2email).
+    * Split static configuration parameters into a ConfigParser-read config file (rss2email.cfg).  Data that depends on the feed state is recorded using JSON (rss2email.json).
+    * Use the XDG Base Directory Specification for standardized configuration and data file locations.
+    * Converted the command line interface to argparse, with some restructuring along the way.
+    * Added the r2e.1 man page (based on one from the Debian package).
+    * Added setup.py and a PyPI page for simpler installation (http://pypi.python.org/pypi/rss2email).
+    * Added Message-ID headers to outgoing email.
+    * Added a test suite.
+    * Upgraded to Python 3.2 to take advantage of cleaner Unicode handling and argparse.
+    * Require Signed-off-by lines in new commit messages, following the Linux and Git projects.
+
 v2.71 (2011-03-04)
+    * Upgraded to feedparser v5.01! (http://code.google.com/p/feedparser/)
+    * Upgrade to html2text v3.01! (https://github.com/aaronsw/html2text)
     * Potentialy safer method for writing feeds.dat on UNIX
     * Handle via links with no title attribute
     * Handle attributes more cleanly with OVERRIDE_EMAIL and DEFAULT_EMAIL
@@ -17,18 +80,18 @@ v2.69 (2010-11-12)
 v2.68 (2010-10-01)
     * Added ability to pause/resume checking of individual feeds through pause and unpause commands
     * Added ability to import and export OPML feed lists through importopml and exportopml commands
-    
+
 v2.67 (2010-09-21)
-    * Fixed entries that include an id which is blank (i.e., an empty string) were being resent 
-    * Fixed some entries not being sent by email because they had bad From headers	
+    * Fixed entries that include an id which is blank (i.e., an empty string) were being resent
+    * Fixed some entries not being sent by email because they had bad From headers
     * Fixed From headers with HTML entities encoded twice
     * Compatibility changes to support most recent development versions of feedparser
     * Compatibility changes to support Google Reader feeds
-    
+
 v2.66 (2009-12-21)
     * Complete packaging of all necessary source files (rss2email, html2text, feedparser, r2e, etc.) into one bundle
         o Included a more complete config.py with all options
-        o Default to HTML mail and CSS results 
+        o Default to HTML mail and CSS results
     * Added 'reset' command to erase history of already seen entries
     * Changed project email to 'lindsey@allthingsrss.com' and project homepage to 'http://www.allthingsrss.com/rss2email/'
     * Made exception and error output text more useful
@@ -37,7 +100,6 @@ v2.66 (2009-12-21)
     * Fixed MacOS compatibility issues
 
 v2.65 (2009-01-05)
-
     * Fixed warnings caused by Python v2.6 (using hashlib, removing mimify, etc.)
     * Deprecated QP_REQUIRED option as this is more than likely no longer needed and part of what triggered Python warnings
     * Fixed unicode errors in certain post headers
@@ -69,7 +131,7 @@ v2.61 (2007-12-07)
         o New parameter CHARSET_LIST to override or supplement the order in which charsets are tried against an entry
         o Don't use blank content to generate id
         o Using GMail as mail server should work
-        
+
 v2.60 (2006-08-25)
     * Small bug-fix version:
         o Now compatible with SunOS

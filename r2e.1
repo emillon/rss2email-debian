@@ -1,0 +1,175 @@
+.TH R2E 1
+.SH NAME
+r2e \- receive RSS feeds by email
+.SH SYNOPSIS
+.B r2e [options] <command> [<args>]
+.SH DESCRIPTION
+.BR r2e
+is a simple program which you can run in your crontab.
+It watches RSS feeds and sends you nicely formatted email message
+for each new item.
+.P
+For a quick start with \fBr2e\fR, try these steps:
+.P
+.RS 4
+.nf
+.BI "r2e new " "your@yourdomain.com"
+.BI "r2e add " "feedname http://feed.url/somewhere.rss"
+.BI "r2e run"
+.RE
+.P
+The last command should eventually be put into your crontab, if you
+want things be sent you automatically.
+.SH OPTIONS
+.TP 4
+\-\-help
+Print the rss2email help and exit.
+.TP
+\-v, \-\-version
+Print the rss2email version and exit.
+.TP
+\-c, \-\-config \fI<path>\fR
+The program configuration is read from $XDG_CONFIG_HOME/rss2mail.cfg
+by default (see also FILES and ENVIRONMENT VARIABLES below).  Use this
+option to set a different configuration file.
+.TP
+\-d, \-\-data \fI<path>\fR
+Dynamic program data is read from $XDG_DATA_HOME/rss2mail\&.json by
+default (see also FILES and ENVIRONMENT VARIABLES below).  Use this
+option to set a different data file.
+.TP
+\-V, \-\-verbose
+Increment the logging verbosity.
+.SH COMMANDS
+.TP 4
+.B new [\fI<email>\fR]
+Create a new feed database. If the \fI<email>\fR argument is given, it
+sets the default email address that mails are sent to.
+.TP
+.B email [\fI<email>\fR]
+Update the default target email address to \fI<email>\fR.
+.TP
+.B add \fI<name>\fR \fI<url>\fR [\fI<email>\fR]
+Subscribe to a feed. The \fI<name>\fR argument gives the feed a name
+for future manipulation. \fI<url>\fR is the URL of the feed.  The
+optional \fI<email>\fR argument is the email address to send new items
+to, overriding the default address for this particular feed.  Repeat
+for each feed you want to subscribe to.
+.TP
+.B run [\-\-no-send] [\fI<index>\fR [\fI<index>\fR ...]]
+Scan the feeds and send emails for new items. This can be run in a cron
+job.
+.P
+.RS 4
+The \-\-no-send option stops \fBr2e\fR from sending any email. This can be
+useful the first time you run it, as otherwise it would send an email
+for every available feed entry.
+.P
+If an \fI<index>\fR is specified, \fBr2e\fR will only download that
+feed. \fI<index>\fR can be either the feed name (as set by \fBadd\fR)
+or the feed index (as shown by \fBlist\fR).
+.RE
+.TP
+.B list
+List all the feeds in the database.
+.TP
+.B pause [\fI<index>\fR [\fI<index>\fR ...]]
+Pause feeds (disable fetching).  The \fI<index>\fR option selects the
+feed(s) to pause (see \fBrun\fR for possible values).  If no
+\fI<index>\fR is given, all feeds are paused.
+.TP
+.B unpause [\fI<index>\fR [\fI<index>\fR ...]]
+Unpause feeds (enable fetching).
+.TP
+.B delete \fI<index>\fR [\fI<index>\fR [\fI<index>\fR ...]]
+Remove a feed (or feeds) from the database.  The \fI<index>\fR option
+selects the feed(s) to delete (see \fBrun\fR for possible values).
+.TP
+.B reset [\fI<index>\fR [\fI<index>\fR ...]]
+Forget dynamic feed data (e.g. to re-send old entries).  The
+\fI<index>\fR option selects the feed(s) to reset (see \fBrun\fR for
+possible values).  If no \fI<index>\fR is given, all feeds are reset.
+.TP
+.B opmlimport [\fI<path>\fR]
+Import new feeds from OPML.  \fI<path>\fR is the file from which the
+OPML data will be read.  If \fI<path>\fR is not given \fBr2e\fR reads
+the data from stdin.
+.TP
+.B opmlexport [\fI<path>\fR]
+Export all feeds to OPML.  \fI<path>\fR is the file to which the OPML
+data will be written.  If \fI<path>\fR is not given \fBr2e\fR writes
+the data to stdout.
+.SH "CONFIGURATION"
+The program's behavior can be controlled via the
+$XDG_CONFIG_HOME/rss2email.cfg (see also FILES and ENVIRONMENT
+VARIABLES below). The file format is similar to a Microsoft Windows
+INI file.  It is parsed by Python's ConfigParser class, so see the
+Python documentation at
+http://docs\&.python\&.org/3/library/configparser\&.html for format
+details.
+.P
+The config file stores general configuration (applied to all feeds) in
+the \fB[DEFAULT]\fR section.  The \fBnew\fR command will create a
+configuration file for you, which you can edit as you see fit.  The
+\fBadd\fR command will add feed-specific sections.  To override any a
+setting for all feeds, change the value in the \fB[DEFAULT]\fR
+section.  To override a setting for a particular feed, add that
+setting to the feed-specific section.  Here is an example overriding
+\fBuse-publisher-email\fR and \fBname-format\fR for the
+\fBfeedname\fR feed.
+.P
+.RS 4
+.nf
+[DEFAULT]
+from = user@rss2email.invalid
+force-from = False
+use-publisher-email = False
+name-format = {feed-title}: {author}
+  .\|.\|.
+verbose = warning
+
+[feed.feedname]
+url = http://feed.url/somewhere.rss
+use-publisher-email = True
+name-format = {author} ({feed.title})
+.RE
+.P
+.SH FILES
+.TP 4
+.B $XDG_CONFIG_HOME/rss2email.cfg
+If this file exists, it it read to configure the program.
+.TP
+.B $XDG_DATA_HOME/rss2email\&.json
+The database of feeds. Use \fBr2e\fR to add, remove, or modify feeds,
+do not edit it directly.
+.SH "ENVIRONMENT VARIABLES"
+The environment variables used by \fBr2e\fR are all defined in the XDG
+Base Directory Specification, which aims to standardize locations for
+user-specific configuration and data files.
+.TP 4
+.B XDG_CONFIG_HOME
+The preferred directory for configuration files.  Defaults to
+$HOME/\&.config.
+.TP
+.B XDG_DATA_HOME
+The preferred directory for data files.  Defaults to
+$HOME/\&.local/share.
+.TP
+.B XDG_CONFIG_DIRS
+A colon ':' separated, preference ordered list of base directories for
+configuration files in addition to $XDG_CONFIG_HOME.  Defaults to
+/etc/xdg.  If multiple configuration files are found in this path,
+they will all be read by the ConfigParser class (see also
+CONFIGURATION above).
+.TP
+.B XDG_DATA_DIRS
+A colon ':' separated, preference ordered list of base directories for
+data files.  Defaults to /usr/local/share/:/usr/share/.  Only the
+first matching file is used.
+.B 
+.SH AUTHORS
+rss2email was started by Aaron Swartz, and is currently maintained by
+W. Trevor King.  For a more complete list of contributors, see the
+__contributors__ list in rss2email/__init__\&.py.
+.SH "REPORTING BUGS"
+Report bugs to the mailing list (see the README for details).
