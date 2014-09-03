@@ -1,5 +1,8 @@
 rss2email (1:3.9-1) UNRELEASED; urgency=medium
 
+  * New upstream release.
+    - drop no-to-email-error.patch, user-agent.patch (picked upstream)
+    - detect when a feed already exists (Closes: #588044, #760197)
   * Display a message if a 2.x database exists (Closes: #752522)
   * Document configuration file (Closes: #752458)
 
