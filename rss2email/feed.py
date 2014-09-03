@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2004-2013 Aaron Swartz
+# Copyright (C) 2004-2014 Aaron Swartz
 #                         Brian Lalor
 #                         Dean Jackson
 #                         Dennis Keitzel <github@pinshot.net>
 #                         Erik Hetzner
 #                         Etienne Millon <me@emillon.org>
+#                         George Saunders <georgesaunders@gmail.com>
 #                         J. Lewis Muir <jlmuir@imca-cat.org>
 #                         Joey Hess
 #                         Lindsey Smith <lindsey.smith@gmail.com>
@@ -57,7 +58,7 @@ from . import error as _error
 from . import util as _util
 
 
-_USER_AGENT = 'rss2email/{} +{}'.format(__version__, __url__)
+_USER_AGENT = 'rss2email/{} ({})'.format(__version__, __url__)
 _feedparser.USER_AGENT = _USER_AGENT
 _urllib_request.install_opener(_urllib_request.build_opener())
 _SOCKET_ERRORS = []
@@ -180,6 +181,7 @@ class Feed (object):
         'active',
         'date_header',
         'trust_guid',
+        'trust_link',
         'html_mail',
         'use_css',
         'unicode_snob',
@@ -498,6 +500,8 @@ class Feed (object):
 
     def _get_entry_id(self, entry):
         """Get best ID from an entry."""
+        if self.trust_link:
+            return entry.get('link', None)
         if self.trust_guid:
             if getattr(entry, 'id', None):
                 # Newer versions of feedparser could return a dictionary

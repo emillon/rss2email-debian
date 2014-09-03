@@ -1,4 +1,4 @@
-# Copyright (C) 2012-2013 W. Trevor King <wking@tremily.us>
+# Copyright (C) 2012-2014 W. Trevor King <wking@tremily.us>
 #
 # This file is part of rss2email.
 #
@@ -21,7 +21,7 @@ import logging as _logging
 import sys as _sys
 
 
-__version__ = '3.8'
+__version__ = '3.9'
 __url__ = 'https://github.com/wking/rss2email'
 __author__ = 'W. Trevor King'
 __email__ = 'rss2email@tremily.us'

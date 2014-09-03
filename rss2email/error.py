@@ -1,4 +1,4 @@
-# Copyright (C) 2012-2013 W. Trevor King <wking@tremily.us>
+# Copyright (C) 2012-2014 W. Trevor King <wking@tremily.us>
 #
 # This file is part of rss2email.
 #
@@ -60,7 +60,7 @@ class NoValidEncodingError (RSS2EmailError, ValueError):
         self.encodings = encodings
 
 
-class SMTPConnectionError (ValueError, RSS2EmailError):
+class SMTPConnectionError (RSS2EmailError, ValueError):
     def __init__(self, server, message=None):
         if message is None:
             message = 'could not connect to mail server {}'.format(server)
@@ -135,10 +135,10 @@ class SendmailError (RSS2EmailError):
 
 
 class FeedError (RSS2EmailError):
-    def __init__(self, feed, message=None):
+    def __init__(self, feed, message=None, **kwargs):
         if message is None:
             message = 'error with feed {}'.format(feed.name)
-        super(FeedError, self).__init__(message=message)
+        super(FeedError, self).__init__(message=message, **kwargs)
         self.feed = feed
 
 
@@ -153,10 +153,18 @@ class InvalidFeedConfig (FeedError):
 
 
 class InvalidFeedName (InvalidFeedConfig):
-    def __init__(self, name, **kwargs):
-        message = "invalid feed name '{}'".format(name)
+    def __init__(self, name, message=None, **kwargs):
+        if not message:
+            message = 'invalid feed name {!r}'.format(name)
         super(InvalidFeedName, self).__init__(
             setting='name', message=message, **kwargs)
+
+
+class DuplicateFeedName (InvalidFeedName):
+    def __init__(self, name, **kwargs):
+        message = 'duplicate feed name {!r}'.format(name)
+        super(DuplicateFeedName, self).__init__(
+            name=name, message=message, **kwargs)
 
 
 class ProcessingError (FeedError):

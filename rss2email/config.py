@@ -1,14 +1,16 @@
-# Copyright (C) 2004-2013 Aaron Swartz
+# Copyright (C) 2004-2014 Aaron Swartz
 #                         Brian Lalor
 #                         Dean Jackson
 #                         Dmitry Bogatov <KAction@gnu.org>
 #                         Erik Hetzner
 #                         Etienne Millon <me@emillon.org>
+#                         George Saunders <georgesaunders@gmail.com>
 #                         Joey Hess
 #                         Lindsey Smith <lindsey.smith@gmail.com>
 #                         Marcel Ackermann
 #                         Martin 'Joey' Schulze
 #                         Matej Cepl
+#                         Thiago Coutinho <root@thiagoc.net>
 #                         W. Trevor King <wking@tremily.us>
 #
 # This file is part of rss2email.
@@ -107,6 +109,12 @@ CONFIG['DEFAULT'] = _collections.OrderedDict((
         # True: Receive one email per post.
         # False: Receive an email every time a post changes.
         ('trust-guid', str(True)),
+        # True: Receive one email per unique link url.
+        # False: Defer to trust-guid preference.
+        # Toggling this for existing feeds may result in duplicates,
+        # because the old entries will not be recorded under their new
+        # link-based ids.
+        ('trust-link', str(False)),
         # To most correctly encode emails with international
         # characters, we iterate through the list below and use the
         # first character set that works.
@@ -185,6 +193,7 @@ CONFIG['DEFAULT'] = _collections.OrderedDict((
         ('smtp-password', 'password'),  # password for SMTP AUTH
         ('smtp-server', 'smtp.yourisp.net:25'),
         ('smtp-ssl', str(False)),       # Connect to the SMTP server using SSL
+        ('smtp-ssl-protocol', 'SSLv3'), # TLS/SSL version to use on STARTTLS when not using 'smtp-ssl'
         # IMAP configuration
         ('imap-auth', str(False)),      # set to True to use IMAP auth.
         ('imap-username', 'username'),  # username for IMAP authentication

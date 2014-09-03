@@ -1,8 +1,9 @@
 # -*- encoding: utf-8 -*-
 #
-# Copyright (C) 2012-2013 Arun Persaud <apersaud@lbl.gov>
+# Copyright (C) 2012-2014 Arun Persaud <apersaud@lbl.gov>
 #                         Dmitry Bogatov <KAction@gnu.org>
 #                         George Saunders <georgesaunders@gmail.com>
+#                         Thiago Coutinho <root@thiagoc.net>
 #                         W. Trevor King <wking@tremily.us>
 #
 # This file is part of rss2email.
@@ -34,6 +35,7 @@ from email.utils import parseaddr as _parseaddr
 import imaplib as _imaplib
 import io as _io
 import smtplib as _smtplib
+import ssl as _ssl
 import subprocess as _subprocess
 import sys as _sys
 import time as _time
@@ -158,7 +160,13 @@ def smtp_send(sender, recipient, message, config=None, section='DEFAULT'):
         password = config.get(section, 'smtp-password')
         try:
             if not ssl:
-                smtp.starttls()
+                protocol_name = config.get(section, 'smtp-ssl-protocol')
+                protocol = getattr(_ssl, 'PROTOCOL_{}'.format(protocol_name))
+                try:
+                    smtp.starttls(context=_ssl.SSLContext(protocol=protocol))
+                except TypeError:
+                    # Python 3.2 or earlier
+                    smtp.starttls()
             smtp.login(username, password)
         except KeyboardInterrupt:
             raise
@@ -317,11 +325,12 @@ def sendmail_send(sender, recipient, message, config=None, section='DEFAULT'):
         config = _config.CONFIG
     message_bytes = _flatten(message)
     sendmail = config.get(section, 'sendmail')
+    sender_name,sender_addr = _parseaddr(sender)
     _LOG.debug(
         'sending message to {} via {}'.format(recipient, sendmail))
     try:
         p = _subprocess.Popen(
-            [sendmail, '-f', sender, recipient],
+            [sendmail, '-F', sender_name, '-f', sender_addr, recipient],
             stdin=_subprocess.PIPE, stdout=_subprocess.PIPE,
             stderr=_subprocess.PIPE)
         stdout,stderr = p.communicate(message_bytes)

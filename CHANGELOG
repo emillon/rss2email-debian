@@ -1,3 +1,12 @@
+v3.9 (2014-09-01)
+    * Catch and error out if a user adds a feed with a duplicate name.
+    * Split sender into both sendmail's -F and -f.
+    * Fix an error with SMTPConnectionError inhertence order ("does not take keyword arguments").
+    * Add a new `smtp-ssl-protocol` setting, to select acceptable protocols for SMTP connections.
+    * Fix non-compliant User-Agent header for HTTP/1.1.
+    * Fix an error in the NoToEmailAddress invocation.
+    * Add a new `trust-link` setting, to prefer the `link` attribute over the `id` attribute for identifying entries.
+
 v3.8 (2014-01-18)
     * Sluggify feed names on opmlimport.
     * Allow Unicode letters and digits in feed names, instead of just ASCII lettters and digits.
