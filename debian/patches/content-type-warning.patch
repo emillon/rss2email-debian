@@ -1,0 +1,32 @@
+From: Etienne Millon <me@emillon.org>
+Date: Sun, 28 Sep 2014 21:56:41 +0200
+Subject: [PATCH] Log a warning when Content-Type is not correct
+
+When a feed is served with a wrong Content-Type, log a warning and not an error.
+This prevents a "processing error" message from being displayed at the default
+log level, which is confusing for a innocuous "error" like this.
+
+Forwarded: https://github.com/wking/rss2email/pull/40
+Bug-Debian: https://bugs.debian.org/760963
+Signed-off-by: Etienne Millon <me@emillon.org>
+---
+ rss2email/feed.py | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/rss2email/feed.py b/rss2email/feed.py
+index 55979a3..ec5c4f6 100644
+--- a/rss2email/feed.py
++++ b/rss2email/feed.py
+@@ -423,6 +423,9 @@ class Feed (object):
+             _LOG.warning(
+                 'incorrectly declared encoding: {}: {}'.format(exc, self))
+             warned = True
++        elif (parsed.bozo and isinstance(exc, _feedparser.NonXMLContentType)):
++            _LOG.warning('non XML Content-Type: {}: {}'.format(exc, self))
++            warned = True
+         elif parsed.bozo or exc:
+             if exc is None:
+                 exc = "can't process"
+-- 
+2.1.0
+

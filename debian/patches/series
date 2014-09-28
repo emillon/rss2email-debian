@@ -1,2 +1,3 @@
 detect_v2_database.patch
 document-config.patch
+content-type-warning.patch
