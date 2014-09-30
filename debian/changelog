@@ -7,6 +7,7 @@ rss2email (1:3.9-1) UNRELEASED; urgency=medium
   * Document configuration file (Closes: #752458)
   * Only display a warning when a wrong Content-Type is served (Closes: #760963)
   * Update homepage
+  * Convert debian/copyright to DEP5
 
  -- Etienne Millon <me@emillon.org>  Wed, 03 Sep 2014 17:44:26 +0200
 

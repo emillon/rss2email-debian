@@ -1,14 +1,26 @@
-This package was put together by Joey Hess <joeyh@debian.org>, using sources
-from the following location:
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: rss2email
+Upstream-Contact: W. Trevor King <wking@tremily.us>
+Source: https://github.com/wking/rss2email
 
-	http://rss2email.infogami.com/
+Files: *
+Copyright: 2004-2014, rss2email contributors (see AUTHORS)
+License: GPL-2-3
 
-rss2email is Copyright (C) 2004 Aaron Swartz, and licensed under the terms of
-version 2 or 3 of the GNU GPL.
-These licenses may be found on Debian systems in the files
-/usr/share/common-licenses/GPL-2 and /usr/share/common-licenses/GPL-3.
+Files: debian/*
+Copyright: 2010-2014 Etienne Millon <me@emillon.org>
+License: GPL-2-3
 
-rss2email 3.x was rewritten in Python3 by W. Trevor King <wking@tremily.us> in
-2013, while keeping the same licensing. The new homepage is at:
-
-        http://github.com/wking/rss2email
+License: GPL-2-3
+ rss2email is free software: you can redistribute it and/or modify it under
+ the terms of the GNU General Public License as published by the Free Software
+ Foundation, either version 2 of the License, or (at your option) version 3 of
+ the License.
+ .
+ rss2email is distributed in the hope that it will be useful, but WITHOUT ANY
+ WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+ .
+ On Debian GNU/Linux systems, the complete text of the GNU General Public
+ Licenses can be found in /usr/share/common-licenses/GPL-2 and
+ /usr/share/common-licenses/GPL-3.
