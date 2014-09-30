@@ -8,7 +8,7 @@ Build-Depends-Indep:
  python3 (>= 3.2)
 Standards-Version: 3.9.5
 X-Python3-Version: >= 3.2
-Homepage: http://www.allthingsrss.com/rss2email/
+Homepage: https://github.com/wking/rss2email
 Vcs-Git: git://anonscm.debian.org/users/emillon-guest/rss2email.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=users/emillon-guest/rss2email.git
 
