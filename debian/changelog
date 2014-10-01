@@ -1,4 +1,4 @@
-rss2email (1:3.9-1) UNRELEASED; urgency=medium
+rss2email (1:3.9-1) unstable; urgency=medium
 
   * New upstream release.
     - drop no-to-email-error.patch, user-agent.patch (picked upstream)
@@ -10,7 +10,7 @@ rss2email (1:3.9-1) UNRELEASED; urgency=medium
   * Convert debian/copyright to DEP5
   * Update Vcs-Browser URL
 
- -- Etienne Millon <me@emillon.org>  Wed, 03 Sep 2014 17:44:26 +0200
+ -- Etienne Millon <me@emillon.org>  Wed, 01 Oct 2014 11:28:45 +0200
 
 rss2email (1:3.8-1) unstable; urgency=medium
 
