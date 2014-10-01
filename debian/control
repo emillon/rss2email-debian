@@ -10,7 +10,7 @@ Standards-Version: 3.9.5
 X-Python3-Version: >= 3.2
 Homepage: https://github.com/wking/rss2email
 Vcs-Git: git://anonscm.debian.org/users/emillon-guest/rss2email.git
-Vcs-Browser: http://anonscm.debian.org/gitweb/?p=users/emillon-guest/rss2email.git
+Vcs-Browser: https://anonscm.debian.org/cgit/users/emillon-guest/rss2email.git
 
 Package: rss2email
 Architecture: all
