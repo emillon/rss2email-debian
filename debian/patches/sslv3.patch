@@ -1,0 +1,46 @@
+From: Etienne Millon <me@emillon.org>
+Date: Sat, 4 Jul 2015 16:25:26 +0200
+Subject: [PATCH] Use TLSv1 instead of SSLv3
+
+As reported in https://bugs.debian.org/781315, SSLv3 is now disabled in Python3.
+It is thus necessary to perform the following changes:
+
+  - modify the default configuration value
+  - replace the existing uses of SSLv3 by TLSv1 (issuing a warning)
+
+Reported-by: Andrew Shadura <andrewsh@debian.org>
+Signed-off-by: Etienne Millon <me@emillon.org>
+Bug-Debian: https://bugs.debian.org/781315
+Forwarded: https://github.com/wking/rss2email/pull/59
+---
+ rss2email/config.py | 2 +-
+ rss2email/email.py  | 3 +++
+ 2 files changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/rss2email/config.py b/rss2email/config.py
+index d21d7a5..28db98b 100644
+--- a/rss2email/config.py
++++ b/rss2email/config.py
+@@ -193,7 +193,7 @@
+         ('smtp-password', 'password'),  # password for SMTP AUTH
+         ('smtp-server', 'smtp.yourisp.net:25'),
+         ('smtp-ssl', str(False)),       # Connect to the SMTP server using SSL
+-        ('smtp-ssl-protocol', 'SSLv3'), # TLS/SSL version to use on STARTTLS when not using 'smtp-ssl'
++        ('smtp-ssl-protocol', 'TLSv1'), # TLS/SSL version to use on STARTTLS when not using 'smtp-ssl'
+         # IMAP configuration
+         ('imap-auth', str(False)),      # set to True to use IMAP auth.
+         ('imap-username', 'username'),  # username for IMAP authentication
+diff --git a/rss2email/email.py b/rss2email/email.py
+index e082872..7e688cb 100644
+--- a/rss2email/email.py
++++ b/rss2email/email.py
+@@ -161,6 +161,9 @@
+         try:
+             if not ssl:
+                 protocol_name = config.get(section, 'smtp-ssl-protocol')
++                if protocol_name == 'SSLv3':
++                    _LOG.warning('SSLv3 is not available, defaulting to TLSv1.')
++                    protocol_name = 'TLSv1'
+                 protocol = getattr(_ssl, 'PROTOCOL_{}'.format(protocol_name))
+                 try:
+                     smtp.starttls(context=_ssl.SSLContext(protocol=protocol))
