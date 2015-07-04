@@ -10,6 +10,9 @@
 #
 # Changelog:
 #
+#   v5 (2015-07-04)
+#      - support per-feed addresses
+#
 #   v4 (2014-06-10)
 #      - support XDG directories
 #
@@ -81,8 +84,11 @@ def slugify(s):
     return ''.join([slugify_char(c) for c in s])
 
 
-def add(url, name):
-    return subprocess.call(['r2e', 'add', name, url])
+def add(url, name, to):
+    extra_args = []
+    if to is not None:
+        extra_args = [to]
+    return subprocess.call(['r2e', 'add', name, url] + extra_args)
 
 
 def pause(name):
@@ -118,7 +124,7 @@ def main():
         url = feed.url
         print url
         name = slugify(url)
-        add(url, name)
+        add(url, name, feed.to)
         if not feed.active:
             pause(name)
         modified = None

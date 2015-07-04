@@ -2,6 +2,7 @@ rss2email (1:3.9-2) UNRELEASED; urgency=medium
 
   * Bump Standards-Version to 3.9.6 (no changes needed)
   * Use TLSv1 by default instead of SSLv3 (Closes: #781315)
+  * r2e-migrate: add per-feed addresses (Closes: #784788)
 
  -- Etienne Millon <me@emillon.org>  Sat, 04 Jul 2015 11:59:25 +0200
 
