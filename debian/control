@@ -6,7 +6,7 @@ Build-Depends:
  debhelper (>= 9)
 Build-Depends-Indep:
  python3 (>= 3.2)
-Standards-Version: 3.9.5
+Standards-Version: 3.9.6
 X-Python3-Version: >= 3.2
 Homepage: https://github.com/wking/rss2email
 Vcs-Git: git://anonscm.debian.org/users/emillon-guest/rss2email.git
